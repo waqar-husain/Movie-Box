@@ -1,5 +1,5 @@
 .header {
-  height: 100vh;
+  height: 62rem;
 }
 .nav {
   z-index: 100;
@@ -52,10 +52,13 @@
 
   //SIGN IN
   &-sign {
+    color: inherit;
+    text-decoration: none;
     margin-left: auto;
     font-size: 1.6rem;
     font-weight: bold;
     margin-right: 9.8rem;
+    border-bottom: 1px solid transparent;
 
     &:hover {
       cursor: pointer;

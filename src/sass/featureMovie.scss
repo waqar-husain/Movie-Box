@@ -1,0 +1,82 @@
+.featureMovie {
+  margin-top: 7rem;
+  margin-bottom: 7rem;
+}
+
+.title {
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 9.8rem;
+  margin-right: 9.8rem;
+
+  .title-heading {
+    font-size: 3.6rem;
+    font-weight: 600;
+  }
+  .title-seeMore {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    color: #be123c;
+    text-decoration: none;
+    .seeMore-right {
+      margin-left: 1.5rem;
+    }
+  }
+}
+.movielist {
+  height: 51.3rem;
+  margin-top: 4.4rem;
+  color: black;
+  margin-left: 9.8rem;
+  margin-right: 9.8rem;
+  display: flex;
+  column-gap: 8rem;
+}
+
+.moviecard {
+  width: 25rem;
+  margin-bottom: 2.3rem;
+  &-poster {
+    margin-bottom: 1.2rem;
+    .like {
+      width: 25rem;
+      position: absolute;
+      z-index: 10;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &-right {
+        height: 3rem;
+        width: 3rem;
+        margin-left: auto;
+        margin-top: 1.558rem;
+        margin-right: 1.6rem;
+      }
+    }
+  }
+
+  &-details {
+    .about {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #9ca3af;
+      margin-bottom: 1.2rem;
+    }
+    .movie-name {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 1.2rem;
+    }
+
+    .card-rating {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.2rem;
+    }
+  }
+}
