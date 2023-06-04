@@ -1,0 +1,112 @@
+.header {
+  height: 100vh;
+}
+.nav {
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  height: 8rem;
+  position: relative;
+
+  //LOGO
+  &-box {
+    display: flex;
+    align-items: center;
+    margin-left: 9.5rem;
+    &__name {
+      font-size: 2.4rem;
+      margin-left: 2.4rem;
+    }
+  }
+
+  //SEARCH
+  &-search {
+    margin-left: 21.8rem;
+    display: flex;
+    align-items: center;
+    width: 52.5rem;
+    justify-content: center;
+
+    &__input {
+      color: #d9d9d9;
+      font-family: inherit;
+      font-size: 1.6rem;
+      border-radius: 0.8rem;
+      border-color: #d9d9d9;
+      border-width: 2px;
+      padding: 0.6rem 1rem;
+      background-color: transparent;
+      margin-right: -3rem;
+      width: 90%;
+      transition: all 0.3s;
+      &:focus {
+        outline: none;
+        width: 100%;
+      }
+      //   &:active {
+      //   }
+    }
+    .searh-button {
+      height: 2rem;
+    }
+  }
+
+  //SIGN IN
+  &-sign {
+    width: 11.4rem;
+    margin-left: auto;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-right: 9.8rem;
+    padding-left: 3rem;
+  }
+}
+.homepage {
+}
+
+.homepage--background {
+  z-index: -100;
+  position: absolute;
+  top: 0rem;
+  &__img {
+    width: 100vw;
+    height: 100%;
+  }
+}
+
+.about-movie {
+  height: 40.4rem;
+  width: 28.5rem;
+  margin-left: 9.8rem;
+  margin-top: 7rem;
+  margin-bottom: 15.7rem;
+  &_name {
+    font-weight: 600;
+    font-size: 4.8rem;
+    line-height: 5.6rem;
+    margin-bottom: 1.6rem;
+  }
+  &_decription {
+    width: 30.2rem;
+    font-size: 1.4rem;
+    margin-bottom: 1.6rem;
+  }
+}
+.movie-button {
+  display: flex;
+  align-items: center;
+  &_trailer {
+    line-height: 2.4rem;
+    padding: 0.6rem 1.6rem 0.6rem 4.4rem;
+    color: #fff;
+    background-color: #be123c;
+    font-size: 1.4rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.6rem;
+  }
+  .icon-play {
+    position: absolute;
+    left: 11.5rem;
+  }
+}
