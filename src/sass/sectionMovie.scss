@@ -1,14 +1,17 @@
-.featureMovie {
+.sectionMovie {
   margin-top: 7rem;
-  margin-bottom: 7rem;
+  margin-bottom: 8rem;
+  margin-left: 3.4rem;
+  margin-right: 3.4rem;
 }
 
 .title {
   color: black;
   display: flex;
   justify-content: space-between;
-  margin-left: 9.8rem;
-  margin-right: 9.8rem;
+  align-items: center;
+  margin-left: 7.5rem;
+  margin-right: 7.9rem;
 
   .title-heading {
     font-size: 3.6rem;
@@ -20,18 +23,33 @@
     font-size: 1.8rem;
     color: #be123c;
     text-decoration: none;
+    height: 3rem;
+    &:hover {
+      border-bottom: 1px solid #be123c;
+    }
     .seeMore-right {
-      margin-left: 1.5rem;
+      margin-left: 0.8rem;
     }
   }
 }
+
+.movie-area {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .movielist {
-  height: 51.3rem;
+  // height: 51.3rem;
+  width: 124rem;
   margin-top: 4.4rem;
   color: black;
-  margin-left: 9.8rem;
-  margin-right: 9.8rem;
+  margin-left: 1.6rem;
+  margin-right: 1.6rem;
   display: flex;
+  justify-content: center;
+  align-items: center;
   column-gap: 8rem;
 }
 
@@ -77,6 +95,24 @@
       display: flex;
       justify-content: space-between;
       margin-bottom: 1.2rem;
+    }
+  }
+}
+
+.btn {
+  display: inline-block;
+  margin-bottom: 6rem;
+  transition: all 0.2s;
+  &-right {
+    &:hover {
+      cursor: pointer;
+      transform: translateX(0.2rem) scale(1.03);
+    }
+  }
+  &-left {
+    &:hover {
+      cursor: pointer;
+      transform: translateX(-0.2rem) scale(1.03);
     }
   }
 }

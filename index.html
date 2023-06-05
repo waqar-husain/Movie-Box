@@ -103,7 +103,8 @@
         </div>
       </div>
     </header>
-    <section class="featureMovie">
+    <!--///////////////////////// SECTION 1 ///////////////////////////////////////////////-->
+    <section class="sectionMovie">
       <div class="title">
         <p class="title-heading">Featured Movie</p>
         <a class="title-seeMore" href="#">
@@ -126,342 +127,834 @@
           </svg>
         </a>
       </div>
-      <div class="movielist">
-        <!-- ////////////////////////////////////// -->
-        <div class="moviecard">
-          <div class="moviecard-poster">
-            <div class="like">
-              <div class="like-right">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="30"
-                  viewBox="0 0 30 30"
-                  fill="none"
-                >
-                  <g filter="url(#filter0_b_1366_545)">
-                    <ellipse
-                      cx="15"
-                      cy="15.1842"
-                      rx="15"
-                      ry="14.6053"
-                      fill="#F3F4F6"
-                      fill-opacity="0.5"
+      <div class="movie-area">
+        <div class="btn btn-left">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="0 0 48 48"
+            fill="none"
+          >
+            <path
+              d="M30 10L16 24L30 38"
+              stroke="#6B7280"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <div class="movielist">
+          <!-- ////////////////////////////////////// -->
+          <div class="moviecard">
+            <div class="moviecard-poster">
+              <div class="like">
+                <div class="like-right">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    viewBox="0 0 30 30"
+                    fill="none"
+                  >
+                    <g filter="url(#filter0_b_1366_545)">
+                      <ellipse
+                        cx="15"
+                        cy="15.1842"
+                        rx="15"
+                        ry="14.6053"
+                        fill="#F3F4F6"
+                        fill-opacity="0.5"
+                      />
+                    </g>
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M8.17157 10.4828C9.73367 8.96185 12.2663 8.96185 13.8284 10.4828L15 11.6236L16.1716 10.4828C17.7337 8.96185 20.2663 8.96185 21.8284 10.4828C23.3905 12.0038 23.3905 14.4698 21.8284 15.9908L15 22.6396L8.17157 15.9908C6.60948 14.4698 6.60948 12.0038 8.17157 10.4828Z"
+                      fill="#D1D5DB"
                     />
-                  </g>
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M8.17157 10.4828C9.73367 8.96185 12.2663 8.96185 13.8284 10.4828L15 11.6236L16.1716 10.4828C17.7337 8.96185 20.2663 8.96185 21.8284 10.4828C23.3905 12.0038 23.3905 14.4698 21.8284 15.9908L15 22.6396L8.17157 15.9908C6.60948 14.4698 6.60948 12.0038 8.17157 10.4828Z"
-                    fill="#D1D5DB"
-                  />
-                  <defs>
-                    <filter
-                      id="filter0_b_1366_545"
-                      x="-2"
-                      y="-1.42105"
-                      width="34"
-                      height="33.2105"
-                      filterUnits="userSpaceOnUse"
-                      color-interpolation-filters="sRGB"
-                    >
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                      <feGaussianBlur
-                        in="BackgroundImageFix"
-                        stdDeviation="1"
-                      />
-                      <feComposite
-                        in2="SourceAlpha"
-                        operator="in"
-                        result="effect1_backgroundBlur_1366_545"
-                      />
-                      <feBlend
-                        mode="normal"
-                        in="SourceGraphic"
-                        in2="effect1_backgroundBlur_1366_545"
-                        result="shape"
-                      />
-                    </filter>
-                  </defs>
-                </svg>
+                    <defs>
+                      <filter
+                        id="filter0_b_1366_545"
+                        x="-2"
+                        y="-1.42105"
+                        width="34"
+                        height="33.2105"
+                        filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB"
+                      >
+                        <feFlood
+                          flood-opacity="0"
+                          result="BackgroundImageFix"
+                        />
+                        <feGaussianBlur
+                          in="BackgroundImageFix"
+                          stdDeviation="1"
+                        />
+                        <feComposite
+                          in2="SourceAlpha"
+                          operator="in"
+                          result="effect1_backgroundBlur_1366_545"
+                        />
+                        <feBlend
+                          mode="normal"
+                          in="SourceGraphic"
+                          in2="effect1_backgroundBlur_1366_545"
+                          result="shape"
+                        />
+                      </filter>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+              <div class="moviecard-poster_img">
+                <img src="/src/images/cardPoster.jpg" alt="movie Poster" />
               </div>
             </div>
-            <div class="moviecard-poster_img">
-              <img src="/src/images/cardPoster.jpg" alt="movie Poster" />
+
+            <div class="moviecard-details">
+              <p class="about">USA, 2016 - Current</p>
+              <p class="movie-name">Stranger Things</p>
+              <div class="about-movie_rating card-rating">
+                <span class="rating rating-imdb">
+                  <img
+                    class="rating-png"
+                    src="/src/images/imdb.png"
+                    alt="png"
+                  />
+                  <p class="rating-rate">86.0/100</p>
+                </span>
+                <span class="rating rating-tomato">
+                  <img
+                    class="rating-png"
+                    src="/src/images/tomato.png"
+                    alt="png"
+                  />
+                  <p class="rating-rate">97%</p>
+                </span>
+              </div>
+              <p class="about">Action, Adventure, Horror</p>
             </div>
           </div>
-
-          <div class="moviecard-details">
-            <p class="about">USA, 2016 - Current</p>
-            <p class="movie-name">Stranger Things</p>
-            <div class="about-movie_rating card-rating">
-              <span class="rating rating-imdb">
-                <img class="rating-png" src="/src/images/imdb.png" alt="png" />
-                <p class="rating-rate">86.0/100</p>
-              </span>
-              <span class="rating rating-tomato">
-                <img
-                  class="rating-png"
-                  src="/src/images/tomato.png"
-                  alt="png"
-                />
-                <p class="rating-rate">97%</p>
-              </span>
+          <!-- /////////////////////////////////////// -->
+          <div class="moviecard">
+            <div class="moviecard-poster">
+              <div class="like">
+                <div class="like-right">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    viewBox="0 0 30 30"
+                    fill="none"
+                  >
+                    <g filter="url(#filter0_b_1366_545)">
+                      <ellipse
+                        cx="15"
+                        cy="15.1842"
+                        rx="15"
+                        ry="14.6053"
+                        fill="#F3F4F6"
+                        fill-opacity="0.5"
+                      />
+                    </g>
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M8.17157 10.4828C9.73367 8.96185 12.2663 8.96185 13.8284 10.4828L15 11.6236L16.1716 10.4828C17.7337 8.96185 20.2663 8.96185 21.8284 10.4828C23.3905 12.0038 23.3905 14.4698 21.8284 15.9908L15 22.6396L8.17157 15.9908C6.60948 14.4698 6.60948 12.0038 8.17157 10.4828Z"
+                      fill="#D1D5DB"
+                    />
+                    <defs>
+                      <filter
+                        id="filter0_b_1366_545"
+                        x="-2"
+                        y="-1.42105"
+                        width="34"
+                        height="33.2105"
+                        filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB"
+                      >
+                        <feFlood
+                          flood-opacity="0"
+                          result="BackgroundImageFix"
+                        />
+                        <feGaussianBlur
+                          in="BackgroundImageFix"
+                          stdDeviation="1"
+                        />
+                        <feComposite
+                          in2="SourceAlpha"
+                          operator="in"
+                          result="effect1_backgroundBlur_1366_545"
+                        />
+                        <feBlend
+                          mode="normal"
+                          in="SourceGraphic"
+                          in2="effect1_backgroundBlur_1366_545"
+                          result="shape"
+                        />
+                      </filter>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+              <div class="moviecard-poster_img">
+                <img src="/src/images/cardPoster.jpg" alt="movie Poster" />
+              </div>
             </div>
-            <p class="about">Action, Adventure, Horror</p>
+
+            <div class="moviecard-details">
+              <p class="about">USA, 2016 - Current</p>
+              <p class="movie-name">Stranger Things</p>
+              <div class="about-movie_rating card-rating">
+                <span class="rating rating-imdb">
+                  <img
+                    class="rating-png"
+                    src="/src/images/imdb.png"
+                    alt="png"
+                  />
+                  <p class="rating-rate">86.0/100</p>
+                </span>
+                <span class="rating rating-tomato">
+                  <img
+                    class="rating-png"
+                    src="/src/images/tomato.png"
+                    alt="png"
+                  />
+                  <p class="rating-rate">97%</p>
+                </span>
+              </div>
+              <p class="about">Action, Adventure, Horror</p>
+            </div>
+          </div>
+          <!-- ////////////////////////////////////// -->
+          <div class="moviecard">
+            <div class="moviecard-poster">
+              <div class="like">
+                <div class="like-right">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    viewBox="0 0 30 30"
+                    fill="none"
+                  >
+                    <g filter="url(#filter0_b_1366_545)">
+                      <ellipse
+                        cx="15"
+                        cy="15.1842"
+                        rx="15"
+                        ry="14.6053"
+                        fill="#F3F4F6"
+                        fill-opacity="0.5"
+                      />
+                    </g>
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M8.17157 10.4828C9.73367 8.96185 12.2663 8.96185 13.8284 10.4828L15 11.6236L16.1716 10.4828C17.7337 8.96185 20.2663 8.96185 21.8284 10.4828C23.3905 12.0038 23.3905 14.4698 21.8284 15.9908L15 22.6396L8.17157 15.9908C6.60948 14.4698 6.60948 12.0038 8.17157 10.4828Z"
+                      fill="#D1D5DB"
+                    />
+                    <defs>
+                      <filter
+                        id="filter0_b_1366_545"
+                        x="-2"
+                        y="-1.42105"
+                        width="34"
+                        height="33.2105"
+                        filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB"
+                      >
+                        <feFlood
+                          flood-opacity="0"
+                          result="BackgroundImageFix"
+                        />
+                        <feGaussianBlur
+                          in="BackgroundImageFix"
+                          stdDeviation="1"
+                        />
+                        <feComposite
+                          in2="SourceAlpha"
+                          operator="in"
+                          result="effect1_backgroundBlur_1366_545"
+                        />
+                        <feBlend
+                          mode="normal"
+                          in="SourceGraphic"
+                          in2="effect1_backgroundBlur_1366_545"
+                          result="shape"
+                        />
+                      </filter>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+              <div class="moviecard-poster_img">
+                <img src="/src/images/cardPoster.jpg" alt="movie Poster" />
+              </div>
+            </div>
+
+            <div class="moviecard-details">
+              <p class="about">USA, 2016 - Current</p>
+              <p class="movie-name">Stranger Things</p>
+              <div class="about-movie_rating card-rating">
+                <span class="rating rating-imdb">
+                  <img
+                    class="rating-png"
+                    src="/src/images/imdb.png"
+                    alt="png"
+                  />
+                  <p class="rating-rate">86.0/100</p>
+                </span>
+                <span class="rating rating-tomato">
+                  <img
+                    class="rating-png"
+                    src="/src/images/tomato.png"
+                    alt="png"
+                  />
+                  <p class="rating-rate">97%</p>
+                </span>
+              </div>
+              <p class="about">Action, Adventure, Horror</p>
+            </div>
+          </div>
+          <!-- /////////////////////////////////////// -->
+          <div class="moviecard">
+            <div class="moviecard-poster">
+              <div class="like">
+                <div class="like-right">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    viewBox="0 0 30 30"
+                    fill="none"
+                  >
+                    <g filter="url(#filter0_b_1366_545)">
+                      <ellipse
+                        cx="15"
+                        cy="15.1842"
+                        rx="15"
+                        ry="14.6053"
+                        fill="#F3F4F6"
+                        fill-opacity="0.5"
+                      />
+                    </g>
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M8.17157 10.4828C9.73367 8.96185 12.2663 8.96185 13.8284 10.4828L15 11.6236L16.1716 10.4828C17.7337 8.96185 20.2663 8.96185 21.8284 10.4828C23.3905 12.0038 23.3905 14.4698 21.8284 15.9908L15 22.6396L8.17157 15.9908C6.60948 14.4698 6.60948 12.0038 8.17157 10.4828Z"
+                      fill="#D1D5DB"
+                    />
+                    <defs>
+                      <filter
+                        id="filter0_b_1366_545"
+                        x="-2"
+                        y="-1.42105"
+                        width="34"
+                        height="33.2105"
+                        filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB"
+                      >
+                        <feFlood
+                          flood-opacity="0"
+                          result="BackgroundImageFix"
+                        />
+                        <feGaussianBlur
+                          in="BackgroundImageFix"
+                          stdDeviation="1"
+                        />
+                        <feComposite
+                          in2="SourceAlpha"
+                          operator="in"
+                          result="effect1_backgroundBlur_1366_545"
+                        />
+                        <feBlend
+                          mode="normal"
+                          in="SourceGraphic"
+                          in2="effect1_backgroundBlur_1366_545"
+                          result="shape"
+                        />
+                      </filter>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+              <div class="moviecard-poster_img">
+                <img src="/src/images/cardPoster.jpg" alt="movie Poster" />
+              </div>
+            </div>
+
+            <div class="moviecard-details">
+              <p class="about">USA, 2016 - Current</p>
+              <p class="movie-name">Stranger Things</p>
+              <div class="about-movie_rating card-rating">
+                <span class="rating rating-imdb">
+                  <img
+                    class="rating-png"
+                    src="/src/images/imdb.png"
+                    alt="png"
+                  />
+                  <p class="rating-rate">86.0/100</p>
+                </span>
+                <span class="rating rating-tomato">
+                  <img
+                    class="rating-png"
+                    src="/src/images/tomato.png"
+                    alt="png"
+                  />
+                  <p class="rating-rate">97%</p>
+                </span>
+              </div>
+              <p class="about">Action, Adventure, Horror</p>
+            </div>
           </div>
         </div>
-        <!-- ////////////////////////////////////// -->
-        <div class="moviecard">
-          <div class="moviecard-poster">
-            <div class="like">
-              <div class="like-right">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="30"
-                  viewBox="0 0 30 30"
-                  fill="none"
-                >
-                  <g filter="url(#filter0_b_1366_545)">
-                    <ellipse
-                      cx="15"
-                      cy="15.1842"
-                      rx="15"
-                      ry="14.6053"
-                      fill="#F3F4F6"
-                      fill-opacity="0.5"
+        <div class="btn btn-right">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="0 0 48 48"
+            fill="none"
+          >
+            <path
+              d="M18 10L32 24L18 38"
+              stroke="#6B7280"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!--///////////////////////// SECTION 2 ///////////////////////////////////////////////-->
+    <section class="sectionMovie">
+      <div class="title">
+        <p class="title-heading">New Arrival</p>
+        <a class="title-seeMore" href="#">
+          See more
+          <svg
+            class="seeMore-right"
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="21"
+            viewBox="0 0 20 21"
+            fill="none"
+          >
+            <path
+              d="M7.5 4.66668L13.3333 10.5L7.5 16.3333"
+              stroke="#B91C1C"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+      </div>
+      <div class="movie-area">
+        <div class="btn btn-left">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="0 0 48 48"
+            fill="none"
+          >
+            <path
+              d="M30 10L16 24L30 38"
+              stroke="#6B7280"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <div class="movielist">
+          <!-- ////////////////////////////////////// -->
+          <div class="moviecard">
+            <div class="moviecard-poster">
+              <div class="like">
+                <div class="like-right">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    viewBox="0 0 30 30"
+                    fill="none"
+                  >
+                    <g filter="url(#filter0_b_1366_545)">
+                      <ellipse
+                        cx="15"
+                        cy="15.1842"
+                        rx="15"
+                        ry="14.6053"
+                        fill="#F3F4F6"
+                        fill-opacity="0.5"
+                      />
+                    </g>
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M8.17157 10.4828C9.73367 8.96185 12.2663 8.96185 13.8284 10.4828L15 11.6236L16.1716 10.4828C17.7337 8.96185 20.2663 8.96185 21.8284 10.4828C23.3905 12.0038 23.3905 14.4698 21.8284 15.9908L15 22.6396L8.17157 15.9908C6.60948 14.4698 6.60948 12.0038 8.17157 10.4828Z"
+                      fill="#D1D5DB"
                     />
-                  </g>
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M8.17157 10.4828C9.73367 8.96185 12.2663 8.96185 13.8284 10.4828L15 11.6236L16.1716 10.4828C17.7337 8.96185 20.2663 8.96185 21.8284 10.4828C23.3905 12.0038 23.3905 14.4698 21.8284 15.9908L15 22.6396L8.17157 15.9908C6.60948 14.4698 6.60948 12.0038 8.17157 10.4828Z"
-                    fill="#D1D5DB"
-                  />
-                  <defs>
-                    <filter
-                      id="filter0_b_1366_545"
-                      x="-2"
-                      y="-1.42105"
-                      width="34"
-                      height="33.2105"
-                      filterUnits="userSpaceOnUse"
-                      color-interpolation-filters="sRGB"
-                    >
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                      <feGaussianBlur
-                        in="BackgroundImageFix"
-                        stdDeviation="1"
-                      />
-                      <feComposite
-                        in2="SourceAlpha"
-                        operator="in"
-                        result="effect1_backgroundBlur_1366_545"
-                      />
-                      <feBlend
-                        mode="normal"
-                        in="SourceGraphic"
-                        in2="effect1_backgroundBlur_1366_545"
-                        result="shape"
-                      />
-                    </filter>
-                  </defs>
-                </svg>
+                    <defs>
+                      <filter
+                        id="filter0_b_1366_545"
+                        x="-2"
+                        y="-1.42105"
+                        width="34"
+                        height="33.2105"
+                        filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB"
+                      >
+                        <feFlood
+                          flood-opacity="0"
+                          result="BackgroundImageFix"
+                        />
+                        <feGaussianBlur
+                          in="BackgroundImageFix"
+                          stdDeviation="1"
+                        />
+                        <feComposite
+                          in2="SourceAlpha"
+                          operator="in"
+                          result="effect1_backgroundBlur_1366_545"
+                        />
+                        <feBlend
+                          mode="normal"
+                          in="SourceGraphic"
+                          in2="effect1_backgroundBlur_1366_545"
+                          result="shape"
+                        />
+                      </filter>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+              <div class="moviecard-poster_img">
+                <img src="/src/images/newArriaval.jpg" alt="movie Poster" />
               </div>
             </div>
-            <div class="moviecard-poster_img">
-              <img src="/src/images/cardPoster.jpg" alt="movie Poster" />
+
+            <div class="moviecard-details">
+              <p class="about">USA, 2016 - Current</p>
+              <p class="movie-name">Stranger Things</p>
+              <div class="about-movie_rating card-rating">
+                <span class="rating rating-imdb">
+                  <img
+                    class="rating-png"
+                    src="/src/images/imdb.png"
+                    alt="png"
+                  />
+                  <p class="rating-rate">86.0/100</p>
+                </span>
+                <span class="rating rating-tomato">
+                  <img
+                    class="rating-png"
+                    src="/src/images/tomato.png"
+                    alt="png"
+                  />
+                  <p class="rating-rate">97%</p>
+                </span>
+              </div>
+              <p class="about">Action, Adventure, Horror</p>
             </div>
           </div>
-
-          <div class="moviecard-details">
-            <p class="about">USA, 2016 - Current</p>
-            <p class="movie-name">Stranger Things</p>
-            <div class="about-movie_rating card-rating">
-              <span class="rating rating-imdb">
-                <img class="rating-png" src="/src/images/imdb.png" alt="png" />
-                <p class="rating-rate">86.0/100</p>
-              </span>
-              <span class="rating rating-tomato">
-                <img
-                  class="rating-png"
-                  src="/src/images/tomato.png"
-                  alt="png"
-                />
-                <p class="rating-rate">97%</p>
-              </span>
+          <!-- /////////////////////////////////////// -->
+          <div class="moviecard">
+            <div class="moviecard-poster">
+              <div class="like">
+                <div class="like-right">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    viewBox="0 0 30 30"
+                    fill="none"
+                  >
+                    <g filter="url(#filter0_b_1366_545)">
+                      <ellipse
+                        cx="15"
+                        cy="15.1842"
+                        rx="15"
+                        ry="14.6053"
+                        fill="#F3F4F6"
+                        fill-opacity="0.5"
+                      />
+                    </g>
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M8.17157 10.4828C9.73367 8.96185 12.2663 8.96185 13.8284 10.4828L15 11.6236L16.1716 10.4828C17.7337 8.96185 20.2663 8.96185 21.8284 10.4828C23.3905 12.0038 23.3905 14.4698 21.8284 15.9908L15 22.6396L8.17157 15.9908C6.60948 14.4698 6.60948 12.0038 8.17157 10.4828Z"
+                      fill="#D1D5DB"
+                    />
+                    <defs>
+                      <filter
+                        id="filter0_b_1366_545"
+                        x="-2"
+                        y="-1.42105"
+                        width="34"
+                        height="33.2105"
+                        filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB"
+                      >
+                        <feFlood
+                          flood-opacity="0"
+                          result="BackgroundImageFix"
+                        />
+                        <feGaussianBlur
+                          in="BackgroundImageFix"
+                          stdDeviation="1"
+                        />
+                        <feComposite
+                          in2="SourceAlpha"
+                          operator="in"
+                          result="effect1_backgroundBlur_1366_545"
+                        />
+                        <feBlend
+                          mode="normal"
+                          in="SourceGraphic"
+                          in2="effect1_backgroundBlur_1366_545"
+                          result="shape"
+                        />
+                      </filter>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+              <div class="moviecard-poster_img">
+                <img src="/src/images/cardPoster.jpg" alt="movie Poster" />
+              </div>
             </div>
-            <p class="about">Action, Adventure, Horror</p>
+
+            <div class="moviecard-details">
+              <p class="about">USA, 2016 - Current</p>
+              <p class="movie-name">Stranger Things</p>
+              <div class="about-movie_rating card-rating">
+                <span class="rating rating-imdb">
+                  <img
+                    class="rating-png"
+                    src="/src/images/imdb.png"
+                    alt="png"
+                  />
+                  <p class="rating-rate">86.0/100</p>
+                </span>
+                <span class="rating rating-tomato">
+                  <img
+                    class="rating-png"
+                    src="/src/images/tomato.png"
+                    alt="png"
+                  />
+                  <p class="rating-rate">97%</p>
+                </span>
+              </div>
+              <p class="about">Action, Adventure, Horror</p>
+            </div>
+          </div>
+          <!-- ////////////////////////////////////// -->
+          <div class="moviecard">
+            <div class="moviecard-poster">
+              <div class="like">
+                <div class="like-right">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    viewBox="0 0 30 30"
+                    fill="none"
+                  >
+                    <g filter="url(#filter0_b_1366_545)">
+                      <ellipse
+                        cx="15"
+                        cy="15.1842"
+                        rx="15"
+                        ry="14.6053"
+                        fill="#F3F4F6"
+                        fill-opacity="0.5"
+                      />
+                    </g>
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M8.17157 10.4828C9.73367 8.96185 12.2663 8.96185 13.8284 10.4828L15 11.6236L16.1716 10.4828C17.7337 8.96185 20.2663 8.96185 21.8284 10.4828C23.3905 12.0038 23.3905 14.4698 21.8284 15.9908L15 22.6396L8.17157 15.9908C6.60948 14.4698 6.60948 12.0038 8.17157 10.4828Z"
+                      fill="#D1D5DB"
+                    />
+                    <defs>
+                      <filter
+                        id="filter0_b_1366_545"
+                        x="-2"
+                        y="-1.42105"
+                        width="34"
+                        height="33.2105"
+                        filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB"
+                      >
+                        <feFlood
+                          flood-opacity="0"
+                          result="BackgroundImageFix"
+                        />
+                        <feGaussianBlur
+                          in="BackgroundImageFix"
+                          stdDeviation="1"
+                        />
+                        <feComposite
+                          in2="SourceAlpha"
+                          operator="in"
+                          result="effect1_backgroundBlur_1366_545"
+                        />
+                        <feBlend
+                          mode="normal"
+                          in="SourceGraphic"
+                          in2="effect1_backgroundBlur_1366_545"
+                          result="shape"
+                        />
+                      </filter>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+              <div class="moviecard-poster_img">
+                <img src="/src/images/cardPoster.jpg" alt="movie Poster" />
+              </div>
+            </div>
+
+            <div class="moviecard-details">
+              <p class="about">USA, 2016 - Current</p>
+              <p class="movie-name">Stranger Things</p>
+              <div class="about-movie_rating card-rating">
+                <span class="rating rating-imdb">
+                  <img
+                    class="rating-png"
+                    src="/src/images/imdb.png"
+                    alt="png"
+                  />
+                  <p class="rating-rate">86.0/100</p>
+                </span>
+                <span class="rating rating-tomato">
+                  <img
+                    class="rating-png"
+                    src="/src/images/tomato.png"
+                    alt="png"
+                  />
+                  <p class="rating-rate">97%</p>
+                </span>
+              </div>
+              <p class="about">Action, Adventure, Horror</p>
+            </div>
+          </div>
+          <!-- /////////////////////////////////////// -->
+          <div class="moviecard">
+            <div class="moviecard-poster">
+              <div class="like">
+                <div class="like-right">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    viewBox="0 0 30 30"
+                    fill="none"
+                  >
+                    <g filter="url(#filter0_b_1366_545)">
+                      <ellipse
+                        cx="15"
+                        cy="15.1842"
+                        rx="15"
+                        ry="14.6053"
+                        fill="#F3F4F6"
+                        fill-opacity="0.5"
+                      />
+                    </g>
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M8.17157 10.4828C9.73367 8.96185 12.2663 8.96185 13.8284 10.4828L15 11.6236L16.1716 10.4828C17.7337 8.96185 20.2663 8.96185 21.8284 10.4828C23.3905 12.0038 23.3905 14.4698 21.8284 15.9908L15 22.6396L8.17157 15.9908C6.60948 14.4698 6.60948 12.0038 8.17157 10.4828Z"
+                      fill="#D1D5DB"
+                    />
+                    <defs>
+                      <filter
+                        id="filter0_b_1366_545"
+                        x="-2"
+                        y="-1.42105"
+                        width="34"
+                        height="33.2105"
+                        filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB"
+                      >
+                        <feFlood
+                          flood-opacity="0"
+                          result="BackgroundImageFix"
+                        />
+                        <feGaussianBlur
+                          in="BackgroundImageFix"
+                          stdDeviation="1"
+                        />
+                        <feComposite
+                          in2="SourceAlpha"
+                          operator="in"
+                          result="effect1_backgroundBlur_1366_545"
+                        />
+                        <feBlend
+                          mode="normal"
+                          in="SourceGraphic"
+                          in2="effect1_backgroundBlur_1366_545"
+                          result="shape"
+                        />
+                      </filter>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+              <div class="moviecard-poster_img">
+                <img src="/src/images/cardPoster.jpg" alt="movie Poster" />
+              </div>
+            </div>
+
+            <div class="moviecard-details">
+              <p class="about">USA, 2016 - Current</p>
+              <p class="movie-name">Stranger Things</p>
+              <div class="about-movie_rating card-rating">
+                <span class="rating rating-imdb">
+                  <img
+                    class="rating-png"
+                    src="/src/images/imdb.png"
+                    alt="png"
+                  />
+                  <p class="rating-rate">86.0/100</p>
+                </span>
+                <span class="rating rating-tomato">
+                  <img
+                    class="rating-png"
+                    src="/src/images/tomato.png"
+                    alt="png"
+                  />
+                  <p class="rating-rate">97%</p>
+                </span>
+              </div>
+              <p class="about">Action, Adventure, Horror</p>
+            </div>
           </div>
         </div>
-        <!-- ////////////////////////////////////// -->
-        <div class="moviecard">
-          <div class="moviecard-poster">
-            <div class="like">
-              <div class="like-right">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="30"
-                  viewBox="0 0 30 30"
-                  fill="none"
-                >
-                  <g filter="url(#filter0_b_1366_545)">
-                    <ellipse
-                      cx="15"
-                      cy="15.1842"
-                      rx="15"
-                      ry="14.6053"
-                      fill="#F3F4F6"
-                      fill-opacity="0.5"
-                    />
-                  </g>
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M8.17157 10.4828C9.73367 8.96185 12.2663 8.96185 13.8284 10.4828L15 11.6236L16.1716 10.4828C17.7337 8.96185 20.2663 8.96185 21.8284 10.4828C23.3905 12.0038 23.3905 14.4698 21.8284 15.9908L15 22.6396L8.17157 15.9908C6.60948 14.4698 6.60948 12.0038 8.17157 10.4828Z"
-                    fill="#D1D5DB"
-                  />
-                  <defs>
-                    <filter
-                      id="filter0_b_1366_545"
-                      x="-2"
-                      y="-1.42105"
-                      width="34"
-                      height="33.2105"
-                      filterUnits="userSpaceOnUse"
-                      color-interpolation-filters="sRGB"
-                    >
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                      <feGaussianBlur
-                        in="BackgroundImageFix"
-                        stdDeviation="1"
-                      />
-                      <feComposite
-                        in2="SourceAlpha"
-                        operator="in"
-                        result="effect1_backgroundBlur_1366_545"
-                      />
-                      <feBlend
-                        mode="normal"
-                        in="SourceGraphic"
-                        in2="effect1_backgroundBlur_1366_545"
-                        result="shape"
-                      />
-                    </filter>
-                  </defs>
-                </svg>
-              </div>
-            </div>
-            <div class="moviecard-poster_img">
-              <img src="/src/images/cardPoster.jpg" alt="movie Poster" />
-            </div>
-          </div>
-
-          <div class="moviecard-details">
-            <p class="about">USA, 2016 - Current</p>
-            <p class="movie-name">Stranger Things</p>
-            <div class="about-movie_rating card-rating">
-              <span class="rating rating-imdb">
-                <img class="rating-png" src="/src/images/imdb.png" alt="png" />
-                <p class="rating-rate">86.0/100</p>
-              </span>
-              <span class="rating rating-tomato">
-                <img
-                  class="rating-png"
-                  src="/src/images/tomato.png"
-                  alt="png"
-                />
-                <p class="rating-rate">97%</p>
-              </span>
-            </div>
-            <p class="about">Action, Adventure, Horror</p>
-          </div>
-        </div>
-        <!-- ////////////////////////////////////// -->
-        <div class="moviecard">
-          <div class="moviecard-poster">
-            <div class="like">
-              <div class="like-right">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="30"
-                  viewBox="0 0 30 30"
-                  fill="none"
-                >
-                  <g filter="url(#filter0_b_1366_545)">
-                    <ellipse
-                      cx="15"
-                      cy="15.1842"
-                      rx="15"
-                      ry="14.6053"
-                      fill="#F3F4F6"
-                      fill-opacity="0.5"
-                    />
-                  </g>
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M8.17157 10.4828C9.73367 8.96185 12.2663 8.96185 13.8284 10.4828L15 11.6236L16.1716 10.4828C17.7337 8.96185 20.2663 8.96185 21.8284 10.4828C23.3905 12.0038 23.3905 14.4698 21.8284 15.9908L15 22.6396L8.17157 15.9908C6.60948 14.4698 6.60948 12.0038 8.17157 10.4828Z"
-                    fill="#D1D5DB"
-                  />
-                  <defs>
-                    <filter
-                      id="filter0_b_1366_545"
-                      x="-2"
-                      y="-1.42105"
-                      width="34"
-                      height="33.2105"
-                      filterUnits="userSpaceOnUse"
-                      color-interpolation-filters="sRGB"
-                    >
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                      <feGaussianBlur
-                        in="BackgroundImageFix"
-                        stdDeviation="1"
-                      />
-                      <feComposite
-                        in2="SourceAlpha"
-                        operator="in"
-                        result="effect1_backgroundBlur_1366_545"
-                      />
-                      <feBlend
-                        mode="normal"
-                        in="SourceGraphic"
-                        in2="effect1_backgroundBlur_1366_545"
-                        result="shape"
-                      />
-                    </filter>
-                  </defs>
-                </svg>
-              </div>
-            </div>
-            <div class="moviecard-poster_img">
-              <img src="/src/images/cardPoster.jpg" alt="movie Poster" />
-            </div>
-          </div>
-
-          <div class="moviecard-details">
-            <p class="about">USA, 2016 - Current</p>
-            <p class="movie-name">Stranger Things</p>
-            <div class="about-movie_rating card-rating">
-              <span class="rating rating-imdb">
-                <img class="rating-png" src="/src/images/imdb.png" alt="png" />
-                <p class="rating-rate">86.0/100</p>
-              </span>
-              <span class="rating rating-tomato">
-                <img
-                  class="rating-png"
-                  src="/src/images/tomato.png"
-                  alt="png"
-                />
-                <p class="rating-rate">97%</p>
-              </span>
-            </div>
-            <p class="about">Action, Adventure, Horror</p>
-          </div>
+        <div class="btn btn-right">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="0 0 48 48"
+            fill="none"
+          >
+            <path
+              d="M18 10L32 24L18 38"
+              stroke="#6B7280"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
         </div>
       </div>
     </section>
