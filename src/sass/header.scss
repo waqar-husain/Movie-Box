@@ -158,7 +158,6 @@
   color: #9ca3af;
   font-weight: 600;
   font-size: 1.2rem;
-  padding-right: 2.4rem;
   align-items: center;
 }
 .slide-to {
@@ -169,6 +168,7 @@
   color: #fff;
   font-size: 1.6rem;
   font-weight: 600;
+  padding-right: 1.9rem;
 
   &::before {
     content: "";
@@ -176,9 +176,9 @@
     height: 0.3rem;
     width: 2rem;
     background-color: #fff;
-    border-radius: 3rem;
-    position: absolute;
-    top: 29.1rem;
-    right: 4rem;
+    border-radius: 3.4rem;
+    position: relative;
+    right: 0.6rem;
+    bottom: 0.4rem;
   }
 }
