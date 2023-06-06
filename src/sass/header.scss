@@ -1,12 +1,16 @@
 .header {
-  height: 62rem;
+  height: 52rem;
 }
+
 .nav {
   z-index: 100;
   display: flex;
   align-items: center;
   height: 8rem;
   position: relative;
+  max-width: 144rem;
+  margin-left: auto;
+  margin-right: auto;
 
   //LOGO
   &-box {
@@ -49,7 +53,6 @@
       height: 2rem;
     }
   }
-
   //SIGN IN
   &-sign {
     color: inherit;
@@ -72,15 +75,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 144rem;
   padding-top: 7rem;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .homepage--background {
   z-index: -100;
   position: absolute;
   top: 0rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 144rem;
   &__img {
-    width: 146.3rem;
+    width: 100%;
     height: 100%;
   }
 }
