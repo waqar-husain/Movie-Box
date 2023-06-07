@@ -25,7 +25,11 @@
     align-items: center;
     font-size: 1.8rem;
     color: #be123c;
-    text-decoration: none;
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid transparent;
     height: 3rem;
     &:hover {
       border-bottom: 1px solid #be123c;
@@ -45,13 +49,13 @@
 
 .movielist {
   // height: 51.3rem;
+  // overflow: hidden;
   width: 124rem;
   margin-top: 4.4rem;
   color: black;
   margin-left: 1.6rem;
   margin-right: 1.6rem;
   display: flex;
-  justify-content: center;
   align-items: center;
   column-gap: 8rem;
 }
