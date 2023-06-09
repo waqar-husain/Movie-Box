@@ -61,9 +61,13 @@
 }
 
 .moviecard {
+  text-decoration: none;
   width: 25rem;
   margin-bottom: 2.3rem;
-  &-poster {
+  &:visited {
+    color: inherit;
+  }
+  .moviecard-poster {
     margin-bottom: 1.2rem;
     .like {
       width: 25rem;
@@ -84,7 +88,7 @@
     }
   }
 
-  &-details {
+  .moviecard-details {
     .about {
       font-size: 1.2rem;
       font-weight: 600;

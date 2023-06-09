@@ -2,17 +2,22 @@
   "name": "movie-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "default": "index.html",
   "scripts": {
     "start": "parcel index.html"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waqar-husain/Movie-Box.git"
+  },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "node-sass": "^9.0.0",
-    "parcel": "^2.9.1"
+  "bugs": {
+    "url": "https://github.com/waqar-husain/Movie-Box/issues"
   },
+  "homepage": "https://github.com/waqar-husain/Movie-Box#readme",
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.9.1"
+    "@parcel/transformer-sass": "^2.9.2",
+    "parcel": "^2.9.2"
   }
 }

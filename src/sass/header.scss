@@ -1,3 +1,7 @@
+.main-none {
+  display: none;
+}
+
 .header {
   height: 52rem;
 }
@@ -69,6 +73,11 @@
     }
   }
 }
+
+.navbar-movie {
+  background-color: #01050b;
+}
+
 .homepage {
   // height: 28.5rem;
   // width: 40.4rem;
