@@ -1,0 +1,94 @@
+.showmovie {
+}
+.showmovie-bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-movie {
+  backdrop-filter: blur(2rem);
+}
+.movie {
+  filter: none;
+  width: 140rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3rem 3rem 3rem 3rem;
+  display: flex;
+}
+
+//movie poster and about movie
+.movie-poster {
+  width: 30rem;
+  height: 45rem;
+  border-radius: 1rem;
+}
+
+.moviedata {
+  margin-left: 3rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.moviedata-title {
+  margin-bottom: 3rem;
+}
+
+.title-name {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.movie-genre {
+  display: flex;
+  font-size: 1.6rem;
+  font-weight: 200;
+  align-items: center;
+}
+
+.certification {
+  display: inline-flex;
+  white-space: nowrap;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.6);
+  padding: 0.06em 4px 0.15em 4px;
+  line-height: 1;
+  border-radius: 2px;
+  margin-right: 7px;
+}
+
+.genre {
+  margin-left: 0.5rem;
+
+  &-tx {
+    text-transform: uppercase;
+    margin-left: 0.5rem;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid white;
+    border-radius: 5rem;
+    font-weight: 500;
+  }
+}
+
+.movie-rate {
+  display: flex;
+  align-items: center;
+}
+
+.like-right {
+  margin-left: 3rem;
+  zoom: 1.5;
+  height: 3rem;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    transform: scale(1.06);
+  }
+}
+
+.rating-main {
+  margin-left: 2.5rem !important;
+}

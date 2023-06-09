@@ -136,6 +136,11 @@
     margin-bottom: 1.6rem;
   }
 }
+
+.movie-main {
+  margin-bottom: 0;
+}
+
 .movie-button {
   display: flex;
   align-items: center;
@@ -190,4 +195,8 @@
     right: 0.6rem;
     bottom: 0.4rem;
   }
+}
+
+.zoom {
+  zoom: 1.4;
 }
