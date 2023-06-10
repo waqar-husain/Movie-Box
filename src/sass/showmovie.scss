@@ -120,8 +120,85 @@
 }
 
 .data-main {
+  display: flex;
   width: 140rem;
   height: 50rem;
+  padding: 3rem 4rem 3rem 4rem;
   margin-left: auto;
   margin-right: auto;
+  color: black;
+}
+
+//CAST CONTAINER
+.cast-sec {
+  padding-right: 3rem;
+  width: 100%;
+
+  .top {
+    font-size: 2.2rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+  }
+}
+
+.cast-container {
+  height: 30rem;
+}
+
+.cast-list {
+  list-style: none;
+  display: flex;
+  font-size: 1.4rem;
+  overflow-x: scroll;
+}
+
+.list {
+  min-width: 14rem;
+  width: 14rem;
+  margin: 1rem 0.4rem 1rem 1rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  height: 27.3rem;
+  border: 1px solid rgba($color: #000000, $alpha: 0.2);
+  box-shadow: 0 0.15rem 0.3rem rgba($color: #000000, $alpha: 0.2);
+  padding-bottom: 1rem;
+}
+
+.list-img {
+  background-repeat: none;
+  background-size: cover;
+  height: 17.5rem;
+  width: inherit;
+}
+.list-details {
+  padding: 1rem 1rem 1rem 1rem;
+
+  .name {
+    font-weight: 600;
+  }
+  .role {
+    font-size: 1.2rem;
+  }
+}
+
+.data-cast {
+  min-width: 26rem;
+}
+
+.detail-movie {
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin-bottom: 1.6rem;
+}
+
+.rev-data {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  color: #2f2f2f;
+}
+.strong {
+  display: block;
+  font-weight: 600;
+  color: black;
 }
