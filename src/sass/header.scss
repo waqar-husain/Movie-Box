@@ -200,3 +200,20 @@
 .zoom {
   zoom: 1.4;
 }
+
+.play {
+  margin-left: 3rem;
+  width: auto;
+  background-color: transparent;
+  font-size: 1.7rem;
+  font-weight: 600;
+  transition: all 0.2s;
+
+  &:hover {
+    .play-movie {
+      fill: #9ca3af;
+    }
+    box-shadow: none;
+    color: #9ca3af;
+  }
+}
