@@ -122,7 +122,6 @@
 .data-main {
   display: flex;
   width: 140rem;
-  height: 50rem;
   padding: 3rem 4rem 3rem 4rem;
   margin-left: auto;
   margin-right: auto;
@@ -132,24 +131,40 @@
 //CAST CONTAINER
 .cast-sec {
   padding-right: 3rem;
-  width: 100%;
+  width: 106rem;
+  margin-bottom: 3rem;
 
   .top {
     font-size: 2.2rem;
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 2rem;
   }
 }
 
 .cast-container {
-  height: 30rem;
+  width: 100%;
+  margin-top: -1rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding-bottom: 1rem;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    height: 0.8rem;
+  }
+  &::-webkit-scrollbar-track {
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2rem;
+    background-color: #c1c1c1;
+  }
 }
 
 .cast-list {
   list-style: none;
   display: flex;
   font-size: 1.4rem;
-  overflow-x: scroll;
 }
 
 .list {
@@ -160,8 +175,12 @@
   overflow: hidden;
   height: 27.3rem;
   border: 1px solid rgba($color: #000000, $alpha: 0.2);
-  box-shadow: 0 0.15rem 0.3rem rgba($color: #000000, $alpha: 0.2);
+  box-shadow: 0 0.15rem 0.4rem rgba($color: #000000, $alpha: 0.2);
   padding-bottom: 1rem;
+
+  &:first-child {
+    margin-left: 0rem;
+  }
 }
 
 .list-img {
@@ -187,18 +206,19 @@
 
 .detail-movie {
   font-size: 2.2rem;
-  font-weight: 500;
-  margin-bottom: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
 }
 
 .rev-data {
   font-size: 1.6rem;
   margin-bottom: 1.5rem;
-  font-weight: 500;
+  font-weight: 400;
   color: #2f2f2f;
 }
 .strong {
+  font-size: 1.7rem;
   display: block;
   font-weight: 600;
-  color: black;
+  color: rgb(13, 13, 13);
 }
