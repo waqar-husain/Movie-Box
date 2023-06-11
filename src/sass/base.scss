@@ -15,3 +15,16 @@ html {
   font-family: "Poppins", sans-serif;
   color: #fff;
 }
+
+body {
+  &::-webkit-scrollbar {
+    width: 1rem;
+  }
+  &::-webkit-scrollbar-track {
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2rem;
+    background-color: #c1c1c1;
+  }
+}
