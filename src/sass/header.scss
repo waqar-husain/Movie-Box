@@ -18,13 +18,21 @@
 
   //LOGO
   &-box {
+    background-color: transparent;
+    color: inherit;
+    border: none;
     display: flex;
     align-items: center;
     margin-left: 9.5rem;
+    cursor: pointer;
     &__name {
       font-size: 2.4rem;
       margin-left: 2.4rem;
     }
+  }
+
+  .box-movie {
+    margin-left: 5rem;
   }
 
   //SEARCH
