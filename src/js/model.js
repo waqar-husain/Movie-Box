@@ -11,7 +11,7 @@ const imgUrl = "https://image.tmdb.org/t/p/";
 const createMovieData = function (data, trailer, cast) {
   return {
     movieName: data.original_title,
-    releaseDate: data.release_date,
+    releaseDate: new Date(data.release_date),
     genre: data.genres,
     imdbRate: Math.ceil(data.vote_average),
     tomatoRate: Math.trunc(data.vote_average * 10),
