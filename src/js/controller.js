@@ -5,7 +5,7 @@ const controlShowMovie = async function () {
   try {
     showMovieView.hideMain();
 
-    await model.loadMovie("502356");
+    await model.loadMovie("76600");
 
     showMovieView.render(model.state.movieData);
     console.log(model.state.movieData);
@@ -14,4 +14,10 @@ const controlShowMovie = async function () {
   }
 };
 
-controlShowMovie();
+// controlShowMovie();
+
+const init = function () {
+  showMovieView.addHandlerCloseMovie();
+};
+
+init();

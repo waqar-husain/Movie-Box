@@ -15,6 +15,26 @@ class ShowMovie {
     this._navShow.querySelector(".nav-box").classList.add("box-movie");
     this._showMovie.classList.remove("main-none");
   }
+
+  addHandlerCloseMovie() {
+    this._navShow
+      .querySelector(".nav-box")
+      .addEventListener("click", function (e) {
+        e.preventDefault();
+        const btn = e.target.closest(".nav-box");
+        btn.classList.remove("box-movie");
+        btn.closest(".navbar").classList.remove("navbar-movie");
+        btn
+          .closest("body")
+          .querySelector(".showmovie")
+          .classList.add("main-none");
+        btn
+          .closest("body")
+          .querySelector(".main")
+          .classList.remove("main-none");
+      });
+  }
+
   _generateMarkup() {
     return `   
     <div
@@ -183,7 +203,9 @@ class ShowMovie {
               </svg>
             </div>
 
-            <a class="movie-button play" href="${this._data.trailer}">
+            <a class="movie-button play" href="${
+              this._data.trailer
+            }" target = "blank">
               <svg
                 class="movie-button_play play-movie"
                 xmlns="http://www.w3.org/2000/svg"
