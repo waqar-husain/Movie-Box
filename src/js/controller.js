@@ -14,7 +14,7 @@ const controlShowMovie = async function () {
   }
 };
 
-// controlShowMovie();
+controlShowMovie();
 
 const init = function () {
   showMovieView.addHandlerCloseMovie();
