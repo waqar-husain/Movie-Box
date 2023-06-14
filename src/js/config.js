@@ -6,3 +6,5 @@ export const API_KEY =
 export const TIMEOUT_SEC = 10;
 
 export const lang = "language=en-US";
+
+export const Slide_Timer = 3;

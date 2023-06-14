@@ -97,10 +97,12 @@
   display: flex;
   width: 147.3rem;
   overflow: hidden;
+  position: relative;
 }
 
 .homepage {
   // height: 28.5rem;
+  width: 147.3rem;
   min-width: 147.3rem;
   background-repeat: no-repeat;
   background-size: cover;
@@ -108,25 +110,20 @@
   justify-content: space-between;
   align-items: center;
   height: inherit;
-}
-
-.homepage--background {
-  z-index: -100;
   position: absolute;
   top: 0rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 147.4rem;
-  &__img {
-    width: 100%;
-    height: 100%;
-  }
+  transition: all 1s;
 }
 
 .about-movie {
-  height: 28.5rem;
-  width: 40.4rem;
-  margin-left: 9.8rem;
+  height: inherit;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 9.8rem;
+  padding-right: 78rem;
+  // backdrop-filter: blur(0.1rem);
+  background-color: rgba($color: #000000, $alpha: 0.75);
   &_name {
     font-weight: 600;
     font-size: 4.8rem;
@@ -151,9 +148,9 @@
   }
 
   &_decription {
-    width: 30.2rem;
+    max-width: 60.2rem;
     font-size: 1.4rem;
-    margin-bottom: 1.6rem;
+    margin-bottom: 2.6rem;
   }
 }
 
@@ -162,6 +159,7 @@
 }
 
 .movie-button {
+  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
