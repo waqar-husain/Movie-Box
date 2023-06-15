@@ -2,6 +2,7 @@ import * as model from "./model.js";
 import homePageSlide from "./view/homePageSlide.js";
 import homePageView from "./view/homePageView.js";
 import showMovieView from "./view/showMovieView.js";
+import mainSlide from "./view/movieSlider.js";
 //////////////////////////////////////////////////////////////////////////////
 const controlHomepage = async function () {
   await model.homePageData();
@@ -9,9 +10,13 @@ const controlHomepage = async function () {
   homePageSlide.slide();
 };
 /////////////////////////////////////////////////////////////////////////////
-const controlMovie = async function () {
-  await model.movieShow("topRated");
-  console.log(model.state.showMovieData.topRated);
+const controlMovie = async function (sec) {
+  await model.movieShow(sec);
+  console.log(model.state.showMovieData[`${sec}`]);
+  mainSlide.render(model.state.showMovieData[`${sec}`], sec);
+  mainSlide.slide(sec);
+  mainSlide.cardRight("topRated");
+  mainSlide.cardLeft("topRated");
 };
 ///////////////////////////////////////////////////////////////////////////
 const controlShowMovie = async function () {
@@ -33,7 +38,7 @@ const controlShowMovie = async function () {
 
 const init = function () {
   controlHomepage();
-  controlMovie();
+  controlMovie("topRated");
   showMovieView.addHandlerRender(controlShowMovie);
   showMovieView.addHandlerCloseMovie();
   homePageSlide.eventHandlerSlideTo();

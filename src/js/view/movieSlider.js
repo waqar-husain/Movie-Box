@@ -1,26 +1,92 @@
-class HomepageView {
+class Mainslide {
   _data;
-  _slide = document.querySelector(".slide");
 
-  render(data) {
+  render(data, sec) {
     this._data = data;
-    const markUp = this._markUp();
-    this._slide.insertAdjacentHTML("afterbegin", markUp);
+    const markUp = this._genrateMarkup();
+    if (sec === "topRated") {
+      const slider = document
+        .querySelector(`.section${sec}`)
+        .querySelector(".movielist");
+      slider.insertAdjacentHTML("afterbegin", markUp);
+    }
   }
 
-  _markUp() {
+  _genrateMarkup() {
     const markup = this._data
-      .map((data, i) => {
+      .slice(0, 10)
+      .map((el) => {
         return `
-      <div
-      class="homepage homepage-${i + 1}"
-      style="background-image: url(${data.backgroundPath})"
-    >
-  
-      <div class="about-movie">
-        <p class="about-movie_name">${data.movieName}</p>
+      <a href="#${el.id}" class="moviecard">
+      <div class="moviecard-poster">
+        <div class="like">
+          <div class="like-right">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+              fill="none"
+            >
+              <g filter="url(#filter0_b_1366_545)">
+                <ellipse
+                  cx="15"
+                  cy="15.1842"
+                  rx="15"
+                  ry="14.6053"
+                  fill="#F3F4F6"
+                  fill-opacity="0.5"
+                />
+              </g>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.17157 10.4828C9.73367 8.96185 12.2663 8.96185 13.8284 10.4828L15 11.6236L16.1716 10.4828C17.7337 8.96185 20.2663 8.96185 21.8284 10.4828C23.3905 12.0038 23.3905 14.4698 21.8284 15.9908L15 22.6396L8.17157 15.9908C6.60948 14.4698 6.60948 12.0038 8.17157 10.4828Z"
+                fill="white"
+              />
+              <defs>
+                <filter
+                  id="filter0_b_1366_545"
+                  x="-2"
+                  y="-1.42105"
+                  width="34"
+                  height="33.2105"
+                  filterUnits="userSpaceOnUse"
+                  color-interpolation-filters="sRGB"
+                >
+                  <feFlood
+                    flood-opacity="0"
+                    result="BackgroundImageFix"
+                  />
+                  <feGaussianBlur
+                    in="BackgroundImageFix"
+                    stdDeviation="1"
+                  />
+                  <feComposite
+                    in2="SourceAlpha"
+                    operator="in"
+                    result="effect1_backgroundBlur_1366_545"
+                  />
+                  <feBlend
+                    mode="normal"
+                    in="SourceGraphic"
+                    in2="effect1_backgroundBlur_1366_545"
+                    result="shape"
+                  />
+                </filter>
+              </defs>
+            </svg>
+          </div>
+        </div>
+        <div class="moviecard-poster_img">
+          <img class ="movieCard_img" src="${el.posterPath}" />
+        </div>
+      </div>
 
-        <div class="about-movie_rating">
+      <div class="moviecard-details">
+        <p class="about">${el.releaseDate.getFullYear()}</p>
+        <p class="movie-name">${el.movieName}</p>
+        <div class="about-movie_rating card-rating">
           <span class="rating rating-imdb">
           <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +117,7 @@ class HomepageView {
               />
              </defs>
             </svg>
-            <p class="rating-rate">${data.imdbRate}/10</p>
+            <p class="rating-rate">${el.imdbRate}/10</p>
           </span>
           <span class="rating rating-tomato">
           <svg
@@ -83,40 +149,61 @@ class HomepageView {
             />
           </defs>
         </svg>
-            <p class="rating-rate">${data.tomatoRate}%</p>
+            <p class="rating-rate">${el.tomatoRate}%</p>
           </span>
         </div>
-
-        <div class="about-movie_decription">
-         ${data.overview}
-        </div>
-        <div class = "detail-trailer">
-        <a class="movieDetails" href="#${data.id}">Details &rarr;</a>
-        <a class="movie-button" href="${data.trailer}" target = "blank">
-          <svg
-            class="movie-button_play"
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16ZM7.5547 5.16795C7.24784 4.96338 6.8533 4.94431 6.52814 5.11833C6.20298 5.29235 6 5.63121 6 6V10C6 10.3688 6.20298 10.7077 6.52814 10.8817C6.8533 11.0557 7.24784 11.0366 7.5547 10.8321L10.5547 8.83205C10.8329 8.64659 11 8.33435 11 8C11 7.66565 10.8329 7.35342 10.5547 7.16795L7.5547 5.16795Z"
-              fill="white"
-            />
-          </svg>
-          <p class="movie-button_text">WATCH TRAILER</p>
-        </a>
-        </div>
+        <p class="about">${
+          el.genre.length === 3 ? el.genre : el.genre.slice(0, 3)
+        }</p>
       </div>
-    </div>
-     `;
+    </a>`;
       })
       .join("");
     return markup;
   }
+
+  slide(sec) {
+    const cardArr = document
+      .querySelector(`.section${sec}`)
+      .querySelectorAll(".moviecard");
+
+    cardArr.forEach((el, i) => {
+      el.style.transform = `translateX(${130 * i}%)`;
+    });
+  }
+
+  cardRight(sec) {
+    const cardArr = document
+      .querySelector(`.section${sec}`)
+      .querySelectorAll(".moviecard");
+    const btnRight = document
+      .querySelector(`.section${sec}`)
+      .querySelector(".btn-right");
+
+    const maxSlide = cardArr.length - 4;
+    let curSlide = 0;
+
+    btnRight.addEventListener("click", function (e) {
+      e.preventDefault();
+      curSlide === maxSlide ? (curSlide = 0) : curSlide++;
+      cardArr.forEach((el, i) => {
+        el.style.transform = `translateX(${130 * (i - curSlide)}%)`;
+      });
+    });
+
+    const btnLeft = document
+      .querySelector(`.section${sec}`)
+      .querySelector(".btn-left");
+
+    btnLeft.addEventListener("click", function (e) {
+      e.preventDefault();
+      curSlide === 0 ? (curSlide = 0) : curSlide--;
+      cardArr.forEach((el, i) => {
+        el.style.transform = `translateX(${130 * (i - curSlide)}%)`;
+      });
+    });
+  }
+  cardLeft(sec) {}
 }
-export default new HomepageView();
+
+export default new Mainslide();
