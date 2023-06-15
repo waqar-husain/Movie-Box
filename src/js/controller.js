@@ -15,8 +15,8 @@ const controlMovie = async function (sec) {
   console.log(model.state.showMovieData[`${sec}`]);
   mainSlide.render(model.state.showMovieData[`${sec}`], sec);
   mainSlide.slide(sec);
-  mainSlide.cardRight("topRated");
-  mainSlide.cardLeft("topRated");
+  mainSlide.cardRight(sec);
+  mainSlide.cardLeft(sec);
 };
 ///////////////////////////////////////////////////////////////////////////
 const controlShowMovie = async function () {
@@ -39,6 +39,8 @@ const controlShowMovie = async function () {
 const init = function () {
   controlHomepage();
   controlMovie("topRated");
+  controlMovie("popular");
+
   showMovieView.addHandlerRender(controlShowMovie);
   showMovieView.addHandlerCloseMovie();
   homePageSlide.eventHandlerSlideTo();

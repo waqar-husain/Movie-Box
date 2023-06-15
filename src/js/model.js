@@ -5,7 +5,7 @@ export const state = {
   movieData: {},
   homepageArr: [],
   showMovieData: {
-    popularMovie: [],
+    popular: [],
     topRated: [],
   },
 };
@@ -107,7 +107,11 @@ const createMovieShow = function (data, genres) {
 
 export const movieShow = async function (obj) {
   try {
-    const data = await AJAX(`${API_URL}/top_rated?${lang}&page=1`);
+    const data = await AJAX(
+      `${API_URL}/${
+        obj === "topRated" ? "top_rated" : "popular"
+      }?${lang}&page=1`
+    );
     const genre = await AJAX(
       `https://api.themoviedb.org/3/genre/movie/list?language=en`
     );

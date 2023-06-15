@@ -4,12 +4,10 @@ class Mainslide {
   render(data, sec) {
     this._data = data;
     const markUp = this._genrateMarkup();
-    if (sec === "topRated") {
-      const slider = document
-        .querySelector(`.section${sec}`)
-        .querySelector(".movielist");
-      slider.insertAdjacentHTML("afterbegin", markUp);
-    }
+    const slider = document
+      .querySelector(`.section${sec}`)
+      .querySelector(".movielist");
+    slider.insertAdjacentHTML("afterbegin", markUp);
   }
 
   _genrateMarkup() {

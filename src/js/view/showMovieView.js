@@ -25,6 +25,7 @@ class ShowMovie {
       .querySelector(".nav-box")
       .addEventListener("click", function (e) {
         e.preventDefault();
+
         const btn = e.target.closest(".nav-box");
         btn.classList.remove("box-movie");
         btn.closest(".navbar").classList.remove("navbar-movie");
@@ -38,6 +39,7 @@ class ShowMovie {
           .classList.remove("main-none");
 
         btn.closest("body").querySelector(".showmovie").innerHTML = "";
+        window.location.assign("#");
       });
   }
 
