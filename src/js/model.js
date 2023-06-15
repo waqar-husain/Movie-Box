@@ -4,6 +4,7 @@ import { API_URL, lang } from "./config";
 export const state = {
   movieData: {},
   homepageArr: [],
+  showMovieData: [],
 };
 
 const youtubeUrl = "https://www.youtube.com/watch?v=";

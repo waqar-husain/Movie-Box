@@ -98,10 +98,10 @@ class ShowMovie {
                   viewBox="0 0 35 17"
                   fill="none"
                 >
-                  <rect width="35" height="17" fill="url(#pattern0)" />
+                  <rect width="35" height="17" fill="url(#pattern2)" />
                   <defs>
                     <pattern
-                      id="pattern0"
+                      id="pattern2"
                       patternContentUnits="objectBoundingBox"
                       width="1"
                       height="1"
@@ -130,10 +130,10 @@ class ShowMovie {
                   viewBox="0 0 16 17"
                   fill="none"
                 >
-                  <rect width="16" height="17" fill="url(#pattern1)" />
+                  <rect width="16" height="17" fill="url(#pattern4)" />
                   <defs>
                     <pattern
-                      id="pattern1"
+                      id="pattern4"
                       patternContentUnits="objectBoundingBox"
                       width="1"
                       height="1"
