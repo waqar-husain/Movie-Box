@@ -90,7 +90,8 @@ class HomepageView {
         <div class="about-movie_decription">
          ${data.overview}
         </div>
-
+        <div class = "detail-trailer">
+        <a class="movieDetails" href="#${data.id}">Details &rarr;</a>
         <a class="movie-button" href="${data.trailer}" target = "blank">
           <svg
             class="movie-button_play"
@@ -109,6 +110,7 @@ class HomepageView {
           </svg>
           <p class="movie-button_text">WATCH TRAILER</p>
         </a>
+        </div>
       </div>
     </div>
      `;

@@ -12,10 +12,12 @@ const controlHomepage = async function () {
 
 const controlShowMovie = async function () {
   try {
+    const id = window.location.hash.slice(1);
+    if (!id) return;
     showMovieView.hideMain();
 
-    await model.loadMovie("76600");
-
+    await model.loadMovie(id);
+    showMovieView.clear();
     showMovieView.render(model.state.movieData);
     console.log(model.state.movieData);
   } catch (err) {
@@ -26,8 +28,9 @@ const controlShowMovie = async function () {
 // controlShowMovie();
 
 const init = function () {
-  showMovieView.addHandlerCloseMovie();
   controlHomepage();
+  showMovieView.addHandlerRender(controlShowMovie);
+  showMovieView.addHandlerCloseMovie();
   homePageSlide.eventHandlerSlideTo();
 };
 

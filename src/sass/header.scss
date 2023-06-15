@@ -158,6 +158,24 @@
   margin-bottom: 0;
 }
 
+.detail-trailer {
+  display: flex;
+}
+
+.movieDetails {
+  padding: 0.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  margin-right: 2.5rem;
+  border-bottom: 1px solid transparent;
+
+  &:hover {
+    border-bottom: 1px solid white;
+  }
+}
+
 .movie-button {
   text-decoration: none;
   display: flex;

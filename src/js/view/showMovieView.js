@@ -9,6 +9,10 @@ class ShowMovie {
     this._showMovie.insertAdjacentHTML("afterbegin", markUp);
   }
 
+  addHandlerRender(handler) {
+    ["hashchange"].forEach((ev) => window.addEventListener(ev, handler));
+  }
+
   hideMain() {
     this._mainDiv.classList.add("main-none");
     this._navShow.classList.add("navbar-movie");
@@ -32,7 +36,13 @@ class ShowMovie {
           .closest("body")
           .querySelector(".main")
           .classList.remove("main-none");
+
+        btn.closest("body").querySelector(".showmovie").innerHTML = "";
       });
+  }
+
+  clear() {
+    document.querySelector(".showmovie").innerHTML = "";
   }
 
   _generateMarkup() {
