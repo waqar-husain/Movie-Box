@@ -4,7 +4,10 @@ import { API_URL, lang } from "./config";
 export const state = {
   movieData: {},
   homepageArr: [],
-  showMovieData: [],
+  showMovieData: {
+    popularMovie: [],
+    topRated: [],
+  },
 };
 
 const youtubeUrl = "https://www.youtube.com/watch?v=";
@@ -88,4 +91,39 @@ export const homePageData = async function () {
     el.trailer = `${youtubeUrl}${id}`;
   }
   state.homepageArr = homeArr;
+};
+
+const createMovieShow = function (data, genres) {
+  return {
+    id: data.id,
+    movieName: data.original_title,
+    releaseDate: new Date(data.release_date),
+    imdbRate: Math.ceil(data.vote_average),
+    tomatoRate: Math.trunc(data.vote_average * 10),
+    genre: genres,
+    posterPath: `${imgUrl}w500/${data.poster_path}`,
+  };
+};
+
+export const movieShow = async function (obj) {
+  try {
+    const data = await AJAX(`${API_URL}/top_rated?${lang}&page=1`);
+    const genre = await AJAX(
+      `https://api.themoviedb.org/3/genre/movie/list?language=en`
+    );
+    const movie = data.results.map((el) => {
+      return createMovieShow(el, genreId(el.genre_ids, genre));
+    });
+    state.showMovieData[`${obj}`] = movie;
+  } catch (err) {
+    throw err;
+  }
+};
+
+const genreId = function (movieGenre, genre) {
+  const genreName = movieGenre.map((el) => {
+    const { name } = genre.genres.find((i) => el === i.id);
+    return name;
+  });
+  return genreName;
 };
