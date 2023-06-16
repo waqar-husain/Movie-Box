@@ -12,11 +12,11 @@ const controlHomepage = async function () {
 /////////////////////////////////////////////////////////////////////////////
 const controlMovie = async function (sec) {
   await model.movieShow(sec);
-  console.log(model.state.showMovieData[`${sec}`]);
+  // console.log(model.state.showMovieData[`${sec}`]);
   mainSlide.render(model.state.showMovieData[`${sec}`], sec);
   mainSlide.slide(sec);
   mainSlide.cardRight(sec);
-  mainSlide.cardLeft(sec);
+  mainSlide.eventlistenerSeeMore(sec);
 };
 ///////////////////////////////////////////////////////////////////////////
 const controlShowMovie = async function () {

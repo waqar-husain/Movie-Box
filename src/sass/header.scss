@@ -1,5 +1,5 @@
 .main-none {
-  display: none;
+  display: none !important;
 }
 
 .header {
@@ -15,7 +15,7 @@
   display: flex;
   align-items: center;
   height: 8rem;
-  max-width: 144rem;
+  max-width: 147rem;
   margin-left: auto;
   margin-right: auto;
 

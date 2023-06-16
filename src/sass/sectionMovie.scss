@@ -5,7 +5,7 @@
 .content {
   margin-left: auto;
   margin-right: auto;
-  max-width: 144rem;
+  max-width: 147rem;
 }
 
 .title {
@@ -48,22 +48,35 @@
 }
 
 .movielist {
-  height: 54.86rem;
+  min-height: 54.86rem;
   position: relative;
   overflow: hidden;
-  width: 124rem;
+  width: 127rem;
   margin-top: 4.4rem;
   color: black;
-  margin-left: 1.6rem;
-  margin-right: 1.6rem;
   display: flex;
   align-items: center;
   column-gap: 8rem;
+  border-radius: 0.7rem;
+}
+
+.movielist-grid {
+  display: grid !important;
+  // justify-content: center;
+  grid-template-columns: 25rem 25rem 25rem 25rem !important;
+  grid-column-gap: 9rem !important;
+  grid-row-gap: 3rem;
+}
+
+.movieCard-full {
+  position: relative !important;
+  transform: translateX(0%) !important;
+  transition: all 0s !important;
 }
 
 .moviecard {
-  transition: all 0.8s;
-
+  transition: transform 0.8s;
+  top: 0;
   position: absolute;
   height: 52.65rem;
   text-decoration: none;

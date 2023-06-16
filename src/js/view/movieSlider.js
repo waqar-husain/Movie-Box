@@ -166,7 +166,7 @@ class Mainslide {
       .querySelectorAll(".moviecard");
 
     cardArr.forEach((el, i) => {
-      el.style.transform = `translateX(${130 * i}%)`;
+      el.style.transform = `translateX(${136 * i}%)`;
     });
   }
 
@@ -185,7 +185,7 @@ class Mainslide {
       e.preventDefault();
       curSlide === maxSlide ? (curSlide = 0) : curSlide++;
       cardArr.forEach((el, i) => {
-        el.style.transform = `translateX(${130 * (i - curSlide)}%)`;
+        el.style.transform = `translateX(${136 * (i - curSlide)}%)`;
       });
     });
 
@@ -197,11 +197,37 @@ class Mainslide {
       e.preventDefault();
       curSlide === 0 ? (curSlide = 0) : curSlide--;
       cardArr.forEach((el, i) => {
-        el.style.transform = `translateX(${130 * (i - curSlide)}%)`;
+        el.style.transform = `translateX(${136 * (i - curSlide)}%)`;
       });
     });
   }
-  cardLeft(sec) {}
+  eventlistenerSeeMore(sec) {
+    const btn = document
+      .querySelector(`.section${sec}`)
+      .querySelector(".title-seeMore");
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      console.log("hi");
+      const btn = document
+        .querySelector(`.section${sec}`)
+        .querySelectorAll(".btn")
+        .forEach((el) => el.classList.toggle("main-none"));
+      const moviecard = document
+        .querySelector(`.section${sec}`)
+        .querySelectorAll(".moviecard")
+        .forEach((el) => {
+          el.classList.toggle("movieCard-full");
+          console.log(el);
+        });
+
+      const movielist = document
+        .querySelector(`.section${sec}`)
+        .querySelector(".movielist")
+        .classList.add("movielist-grid");
+
+      ///////////////////addEventlistenerEnd////////////////////////////////////
+    });
+  }
 }
 
 export default new Mainslide();
