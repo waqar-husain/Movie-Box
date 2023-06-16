@@ -14,9 +14,15 @@ const controlMovie = async function (sec) {
   await model.movieShow(sec);
   // console.log(model.state.showMovieData[`${sec}`]);
   mainSlide.render(model.state.showMovieData[`${sec}`], sec);
+
+  const markup = mainSlide._genrateMarkup(
+    false,
+    model.state.showMovieData[`${sec}`]
+  );
+  mainSlide.eventlistenerSeeMore(sec, markup);
+
   mainSlide.slide(sec);
   mainSlide.cardRight(sec);
-  mainSlide.eventlistenerSeeMore(sec);
 };
 ///////////////////////////////////////////////////////////////////////////
 const controlShowMovie = async function () {

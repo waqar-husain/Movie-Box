@@ -3,16 +3,16 @@ class Mainslide {
 
   render(data, sec) {
     this._data = data;
-    const markUp = this._genrateMarkup();
+    const markUp = this._genrateMarkup(true, data);
     const slider = document
       .querySelector(`.section${sec}`)
       .querySelector(".movielist");
     slider.insertAdjacentHTML("afterbegin", markUp);
   }
 
-  _genrateMarkup() {
-    const markup = this._data
-      .slice(0, 10)
+  _genrateMarkup(i = true, data) {
+    const mainArr = i ? data.slice(0, 10) : data.slice(-10);
+    const markup = mainArr
       .map((el) => {
         return `
       <a href="#${el.id}" class="moviecard">
@@ -201,28 +201,43 @@ class Mainslide {
       });
     });
   }
-  eventlistenerSeeMore(sec) {
+  eventlistenerSeeMore(sec, markup) {
     const btn = document
       .querySelector(`.section${sec}`)
       .querySelector(".title-seeMore");
+
     btn.addEventListener("click", function (e) {
       e.preventDefault();
-      console.log("hi");
+
       const btn = document
         .querySelector(`.section${sec}`)
         .querySelectorAll(".btn")
         .forEach((el) => el.classList.toggle("main-none"));
+
+      const slider = document
+        .querySelector(`.section${sec}`)
+        .querySelector(".movielist");
+      const sliderArr = document
+        .querySelector(`.section${sec}`)
+        .querySelectorAll(".moviecard");
+
+      if (sliderArr.length === 20) {
+        [...sliderArr].slice(-10).forEach((el) => el.remove());
+      } else {
+        slider.insertAdjacentHTML("beforeend", markup);
+      }
+
+      const movielist = document
+        .querySelector(`.section${sec}`)
+        .querySelector(".movielist")
+        .classList.toggle("movielist-grid");
+
       const moviecard = document
         .querySelector(`.section${sec}`)
         .querySelectorAll(".moviecard")
         .forEach((el) => {
           el.classList.toggle("movieCard-full");
-          console.log(el);
         });
-      const movielist = document
-        .querySelector(`.section${sec}`)
-        .querySelector(".movielist")
-        .classList.add("movielist-grid");
 
       ///////////////////addEventlistenerEnd////////////////////////////////////
     });
