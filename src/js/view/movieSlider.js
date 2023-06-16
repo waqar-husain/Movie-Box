@@ -219,7 +219,6 @@ class Mainslide {
           el.classList.toggle("movieCard-full");
           console.log(el);
         });
-
       const movielist = document
         .querySelector(`.section${sec}`)
         .querySelector(".movielist")
