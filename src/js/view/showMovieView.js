@@ -39,7 +39,7 @@ class ShowMovie {
           .classList.remove("main-none");
 
         btn.closest("body").querySelector(".showmovie").innerHTML = "";
-        window.location.assign("#");
+        window.location.assign("");
       });
   }
 
@@ -295,7 +295,13 @@ class ShowMovie {
     <li class="list">
     <div
       class="list-img"
-      style="background-image: url(${data.castImg})"
+      style="background-image: url(${
+        data.castImg.slice(-4) !== "null"
+          ? data.castImg
+          : "https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"
+      }); background-position: ${
+      data.castImg.slice(-4) !== "null" ? "center center" : "-18px"
+    };"
     ></div>
     <div class="list-details">
       <p class="name">${data.name}</p>
