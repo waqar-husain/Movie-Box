@@ -14,10 +14,10 @@ class ShowMovie {
   }
 
   hideMain() {
-    this._mainDiv.classList.add("main-none");
-    this._navShow.classList.add("navbar-movie");
-    this._navShow.querySelector(".nav-box").classList.add("box-movie");
-    this._showMovie.classList.remove("main-none");
+    this._mainDiv.classList.toggle("main-none");
+    this._navShow.classList.toggle("navbar-movie");
+    this._navShow.querySelector(".nav-box").classList.toggle("box-movie");
+    this._showMovie.classList.toggle("main-none");
   }
 
   addHandlerCloseMovie() {

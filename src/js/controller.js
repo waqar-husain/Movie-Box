@@ -27,26 +27,39 @@ const controlMovie = async function (sec) {
 ///////////////////////////////////////////////////////////////////////////
 const controlShowMovie = async function () {
   try {
-    const id = window.location.hash.slice(1);
-    if (!id) return;
+    const id = window.location.hash;
+    if (!id) {
+      showMovieView.hideMain();
+      mainPage();
+      return;
+    }
+    const mainId = id.slice(1);
     showMovieView.hideMain();
-
-    await model.loadMovie(id);
+    await model.loadMovie(mainId);
     showMovieView.clear();
     showMovieView.render(model.state.movieData);
-    console.log(model.state.movieData);
+    // console.log(model.state.movieData);
   } catch (err) {
     console.log(err);
   }
 };
 // controlShowMovie();
 //////////////////////////////////////////////////////////////////////////////////////
+const idControl = function () {
+  if (window.location.hash !== "") {
+    controlShowMovie();
+  }
+};
 
-const init = function () {
+const mainPage = function () {
   controlHomepage();
   controlMovie("topRated");
   controlMovie("popular");
+};
 
+const init = function () {
+  idControl();
+  mainPage();
   showMovieView.addHandlerRender(controlShowMovie);
   showMovieView.addHandlerCloseMovie();
   homePageSlide.eventHandlerSlideTo();
