@@ -202,12 +202,17 @@ class Mainslide {
     });
   }
   eventlistenerSeeMore(sec, markup) {
-    const btn = document
+    const btnSeemore = document
       .querySelector(`.section${sec}`)
       .querySelector(".title-seeMore");
 
-    btn.addEventListener("click", function (e) {
+    btnSeemore.addEventListener("click", function (e) {
       e.preventDefault();
+
+      //Change button
+      btnSeemore.querySelector(".default").classList.toggle("main-none");
+      btnSeemore.querySelector(".default-less").classList.toggle("main-none");
+      btnSeemore.classList.toggle("title-seeLess");
 
       const btn = document
         .querySelector(`.section${sec}`)

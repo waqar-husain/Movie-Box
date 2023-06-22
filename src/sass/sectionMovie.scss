@@ -14,7 +14,7 @@
   justify-content: space-between;
   align-items: center;
   margin-left: 9.8rem;
-  margin-right: 9.8rem;
+  margin-right: 10rem;
 
   .title-heading {
     font-size: 3.6rem;
@@ -40,6 +40,27 @@
   }
 }
 
+.title-seeLess {
+  color: #444444 !important;
+  &:hover {
+    border-bottom: 1px solid #444444 !important;
+  }
+}
+
+.default {
+  display: flex;
+  align-items: center;
+}
+
+.default-less {
+  display: flex;
+  align-items: center;
+}
+
+.seeLess-left {
+  margin-right: 0.8rem;
+}
+
 .movie-area {
   width: 100%;
   display: flex;
@@ -51,12 +72,11 @@
   min-height: 54.86rem;
   position: relative;
   overflow: hidden;
-  width: 127rem;
+  width: 126.9rem;
   margin-top: 4.4rem;
   color: black;
   display: flex;
   align-items: center;
-  column-gap: 8rem;
   border-radius: 0.7rem;
 }
 
