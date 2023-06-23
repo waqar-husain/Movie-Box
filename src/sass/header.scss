@@ -95,15 +95,14 @@
   margin-right: auto;
   height: inherit;
   display: flex;
-  width: 147.3rem;
+  max-width: 147.3rem;
   overflow: hidden;
   position: relative;
 }
 
 .homepage {
   // height: 28.5rem;
-  width: 147.3rem;
-  min-width: 147.3rem;
+  max-width: 147.3rem;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
