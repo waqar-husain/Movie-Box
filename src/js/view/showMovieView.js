@@ -295,19 +295,26 @@ class ShowMovie {
     <li class="list">
     <div
       class="list-img"
-      style="background-image: url(${
-        data.castImg.slice(-4) !== "null"
-          ? data.castImg
-          : "https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"
-      }); background-position: ${
-      data.castImg.slice(-4) !== "null" ? "center center" : "-18px"
-    };"
+      style="background-image: url(${this._fixImg(
+        data.castImg,
+        true
+      )}); background-position:${this._fixImg(data.castImg)} ;"
     ></div>
     <div class="list-details">
       <p class="name">${data.name}</p>
       <p class="role">${data.characterName}</p>
     </div>
   </li>`;
+  }
+
+  _fixImg(img, position = false) {
+    return position
+      ? img.slice(-4) !== "null"
+        ? img
+        : "https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"
+      : img.slice(-4) !== "null"
+      ? "center center"
+      : "-18px";
   }
 }
 

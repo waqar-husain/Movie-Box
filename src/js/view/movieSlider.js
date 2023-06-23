@@ -77,7 +77,10 @@ class Mainslide {
           </div>
         </div>
         <div class="moviecard-poster_img">
-          <img class ="movieCard_img" src="${el.posterPath}" />
+          <img class ="movieCard_img" src="${this._fixImg(
+            el.posterPath,
+            true
+          )}" style = "${this._fixImg(el.posterPath)}" />
         </div>
       </div>
 
@@ -201,6 +204,7 @@ class Mainslide {
       });
     });
   }
+
   eventlistenerSeeMore(sec, markup) {
     const btnSeemore = document
       .querySelector(`.section${sec}`)
@@ -246,6 +250,16 @@ class Mainslide {
 
       ///////////////////addEventlistenerEnd////////////////////////////////////
     });
+  }
+
+  _fixImg(img, position = false) {
+    return position
+      ? img.slice(-4) !== "null"
+        ? img
+        : "https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"
+      : img.slice(-4) !== "null"
+      ? ""
+      : "object-fit:contain; background-color:#f5f5f5";
   }
 }
 
