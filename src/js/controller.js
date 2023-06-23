@@ -5,24 +5,32 @@ import showMovieView from "./view/showMovieView.js";
 import mainSlide from "./view/movieSlider.js";
 //////////////////////////////////////////////////////////////////////////////
 const controlHomepage = async function () {
-  await model.homePageData();
-  homePageView.render(model.state.homepageArr);
-  homePageSlide.slide();
+  try {
+    await model.homePageData();
+    homePageView.render(model.state.homepageArr);
+    homePageSlide.slide();
+  } catch (err) {
+    console.log(err);
+  }
 };
 /////////////////////////////////////////////////////////////////////////////
 const controlMovie = async function (sec) {
-  await model.movieShow(sec);
-  // console.log(model.state.showMovieData[`${sec}`]);
-  mainSlide.render(model.state.showMovieData[`${sec}`], sec);
+  try {
+    await model.movieShow(sec);
+    // console.log(model.state.showMovieData[`${sec}`]);
+    mainSlide.render(model.state.showMovieData[`${sec}`], sec);
 
-  const markup = mainSlide._genrateMarkup(
-    false,
-    model.state.showMovieData[`${sec}`]
-  );
-  mainSlide.eventlistenerSeeMore(sec, markup);
+    const markup = mainSlide._genrateMarkup(
+      false,
+      model.state.showMovieData[`${sec}`]
+    );
+    mainSlide.eventlistenerSeeMore(sec, markup);
 
-  mainSlide.slide(sec);
-  mainSlide.cardRight(sec);
+    mainSlide.slide(sec);
+    mainSlide.cardRight(sec);
+  } catch (err) {
+    console.log(err);
+  }
 };
 ///////////////////////////////////////////////////////////////////////////
 const controlShowMovie = async function () {
@@ -30,7 +38,6 @@ const controlShowMovie = async function () {
     const id = window.location.hash;
     if (!id) {
       showMovieView.hideMain();
-      mainPage();
       return;
     }
     const mainId = id.slice(1);

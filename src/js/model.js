@@ -74,23 +74,27 @@ const castData = async function (id) {
 };
 
 export const homePageData = async function () {
-  const data = await AJAX(`${API_URL}/now_playing?${lang}$page=1`);
-  const homeArr = data.results.slice(0, 5).map((data) => {
-    return {
-      movieName: data.original_title,
-      imdbRate: Math.ceil(data.vote_average),
-      tomatoRate: Math.trunc(data.vote_average * 10),
-      backgroundPath: `${imgUrl}w1280/${data.backdrop_path}`,
-      overview: data.overview,
-      id: data.id,
-    };
-  });
+  try {
+    const data = await AJAX(`${API_URL}/now_playing?${lang}$page=1`);
+    const homeArr = data.results.slice(0, 5).map((data) => {
+      return {
+        movieName: data.original_title,
+        imdbRate: Math.ceil(data.vote_average),
+        tomatoRate: Math.trunc(data.vote_average * 10),
+        backgroundPath: `${imgUrl}w1280/${data.backdrop_path}`,
+        overview: data.overview,
+        id: data.id,
+      };
+    });
 
-  for (const el of homeArr) {
-    const id = await videoData(el.id);
-    el.trailer = `${youtubeUrl}${id}`;
+    for (const el of homeArr) {
+      const id = await videoData(el.id);
+      el.trailer = `${youtubeUrl}${id}`;
+    }
+    state.homepageArr = homeArr;
+  } catch (err) {
+    throw err;
   }
-  state.homepageArr = homeArr;
 };
 
 const createMovieShow = function (data, genres) {
