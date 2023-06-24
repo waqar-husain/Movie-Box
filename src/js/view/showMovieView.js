@@ -58,8 +58,13 @@ class ShowMovie {
         <div
           class="movie-poster"
           style="
-            background-image: url(${this._data.posterPath});
-            background-size: cover;
+            background-image: url(${this._fixImg(this._data.posterPath, true)});
+            ${
+              this._data.posterPath.slice(-4) !== "null"
+                ? "background-size:cover"
+                : "background-size: contain;background-repeat : no-repeat;background-color:#f5f5f5; background-position:10px center"
+            };
+          }
           "
         ></div>
         <div class="moviedata">
