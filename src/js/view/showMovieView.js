@@ -43,8 +43,8 @@ class ShowMovie {
       });
   }
 
-  clear() {
-    document.querySelector(".showmovie").innerHTML = "";
+  clear(el) {
+    el.innerHTML = "";
   }
 
   _generateMarkup() {
@@ -322,7 +322,7 @@ class ShowMovie {
       : "-18px";
   }
 
-  renderSpinner() {
+  renderSpinner(el) {
     const markup = `
     <div class =  "spinnerContainer">
     <div class = "spinner">
@@ -332,8 +332,8 @@ class ShowMovie {
     </div>
     </div> 
     `;
-    this._showMovie.innerHTML = "";
-    this._showMovie.insertAdjacentHTML("afterbegin", markup);
+    el.innerHTML = "";
+    el.insertAdjacentHTML("afterbegin", markup);
   }
 }
 

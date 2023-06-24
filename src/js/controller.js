@@ -35,7 +35,7 @@ const controlMovie = async function (sec) {
 ///////////////////////////////////////////////////////////////////////////
 const controlShowMovie = async function () {
   try {
-    showMovieView.renderSpinner();
+    showMovieView.renderSpinner(document.querySelector(".showmovie"));
 
     document.documentElement.scrollTop = 0;
 
@@ -47,7 +47,7 @@ const controlShowMovie = async function () {
     const mainId = id.slice(1);
     showMovieView.hideMain();
     await model.loadMovie(mainId);
-    showMovieView.clear();
+    showMovieView.clear(document.querySelector(".showmovie"));
     showMovieView.render(model.state.movieData);
     // console.log(model.state.movieData);
   } catch (err) {
