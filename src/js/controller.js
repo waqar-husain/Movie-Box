@@ -35,6 +35,8 @@ const controlMovie = async function (sec) {
 ///////////////////////////////////////////////////////////////////////////
 const controlShowMovie = async function () {
   try {
+    showMovieView.renderSpinner();
+
     document.documentElement.scrollTop = 0;
 
     const id = window.location.hash;

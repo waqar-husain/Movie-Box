@@ -321,6 +321,20 @@ class ShowMovie {
       ? "center center"
       : "-18px";
   }
+
+  renderSpinner() {
+    const markup = `
+    <div class =  "spinnerContainer">
+    <div class = "spinner">
+      <div class = "bar"></div>
+      <div class= "bar"></div>
+      <div class = "bar"></div>
+    </div>
+    </div> 
+    `;
+    this._showMovie.innerHTML = "";
+    this._showMovie.insertAdjacentHTML("afterbegin", markup);
+  }
 }
 
 export default new ShowMovie();

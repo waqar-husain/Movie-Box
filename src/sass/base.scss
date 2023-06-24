@@ -28,3 +28,57 @@ body {
     background-color: #c1c1c1;
   }
 }
+
+//Spinner
+
+.spinnerContainer {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+  width: 5rem;
+  height: 50vh;
+}
+
+.spinner {
+  height: 75px;
+  width: 50px;
+  display: inline-block;
+  position: relative;
+}
+
+.bar {
+  background-color: rgb(190, 18, 60);
+  position: absolute;
+  // top:8px;
+  display: inline-block;
+  width: 6px;
+  border-radius: 10px;
+  animation: spin 1s linear infinite;
+}
+
+.bar:nth-child(1) {
+  left: 7px;
+  animation-delay: -0.3s;
+}
+.bar:nth-child(2) {
+  left: 21px;
+  animation-delay: -0.1s;
+}
+.bar:nth-child(3) {
+  left: 35px;
+  animation-delay: 0.1s;
+}
+
+@keyframes spin {
+  0% {
+    top: 7px;
+    height: 49px;
+  }
+
+  50%,
+  100% {
+    top: 21px;
+    height: 28px;
+  }
+}
