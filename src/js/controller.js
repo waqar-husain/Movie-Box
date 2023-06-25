@@ -3,7 +3,8 @@ import homePageSlide from "./view/homePageSlide.js";
 import homePageView from "./view/homePageView.js";
 import showMovieView from "./view/showMovieView.js";
 import mainSlide from "./view/movieSlider.js";
-//////////////////////////////////////////////////////////////////////////////
+
+///////HOMEPAGE///////////////////////////////////////////////////////////////////////
 const controlHomepage = async function () {
   try {
     await model.homePageData();
@@ -13,7 +14,7 @@ const controlHomepage = async function () {
     console.log(err);
   }
 };
-/////////////////////////////////////////////////////////////////////////////
+///////SECTION MOVIES//////////////////////////////////////////////////////////////////////
 const controlMovie = async function (sec) {
   try {
     await model.movieShow(sec);
@@ -32,7 +33,7 @@ const controlMovie = async function (sec) {
     console.log(err);
   }
 };
-///////////////////////////////////////////////////////////////////////////
+/////////SHOWMOVIES//////////////////////////////////////////////////////////////////
 const controlShowMovie = async function () {
   try {
     showMovieView.renderSpinner(document.querySelector(".showmovie"));
@@ -55,6 +56,9 @@ const controlShowMovie = async function () {
   }
 };
 // controlShowMovie();
+
+const controlSearchResults = async function () {};
+
 //////////////////////////////////////////////////////////////////////////////////////
 const idControl = function () {
   if (window.location.hash !== "") {

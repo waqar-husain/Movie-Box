@@ -8,6 +8,12 @@ export const state = {
     popular: [],
     topRated: [],
   },
+  search: {
+    query: "",
+    results: [],
+    // resultPerPage: RES_PER_PAGE, //10
+    page: 1,
+  },
 };
 
 const youtubeUrl = "https://www.youtube.com/watch?v=";
@@ -134,4 +140,11 @@ const genreId = function (movieGenre, genre) {
     return name;
   });
   return genreName;
+};
+
+export const loadSearch = async function (query) {
+  state.search.query = query;
+  const data = await AJAX(
+    `${API_URL}?query=${query}&include_adult=false&${lang}&page=1`
+  );
 };
