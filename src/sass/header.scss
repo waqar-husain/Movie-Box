@@ -40,7 +40,9 @@
 
   //SEARCH
   &-search {
+    position: relative;
     margin-left: 14.8rem;
+    height: 4.8rem;
     display: flex;
     align-items: center;
     width: 52.5rem;
@@ -54,11 +56,11 @@
       padding: 0.6rem 1rem;
       background-color: transparent;
       margin-right: -3rem;
-      width: 90%;
+      width: 47.2rem;
       transition: all 0.3s;
       &:focus {
         outline: none;
-        width: 100%;
+        width: 52.5rem;
       }
       &::placeholder {
         color: #d9d9d9;
@@ -83,6 +85,27 @@
       border-bottom: 1px solid white;
     }
   }
+}
+
+.search-box {
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  background-color: rgba($color: #fff, $alpha: 0.2); //added when search
+  padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+  border-radius: 1rem;
+  flex-direction: column;
+  box-shadow: 0px 1px 4px rgba($color: #000000, $alpha: 0.3); //added when search
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.movieSearch {
 }
 
 .navbar-movie {
