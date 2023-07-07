@@ -13,11 +13,19 @@ class ShowMovie {
     ["hashchange"].forEach((ev) => window.addEventListener(ev, handler));
   }
 
-  hideMain() {
-    this._mainDiv.classList.toggle("main-none");
-    this._navShow.classList.toggle("navbar-movie");
-    this._navShow.querySelector(".nav-box").classList.toggle("box-movie");
-    this._showMovie.classList.toggle("main-none");
+  hideMain(main = false) {
+    if(main){
+      this._mainDiv.classList.remove("main-none") 
+      this._navShow.classList.remove("navbar-movie")  
+      this._navShow.querySelector(".nav-box").classList.remove("box-movie")  
+      this._showMovie.classList.add("main-none") 
+    }else{
+      this._mainDiv.classList.add("main-none");
+      this._navShow.classList.add("navbar-movie");
+      this._navShow.querySelector(".nav-box").classList.add("box-movie");
+      this._showMovie.classList.remove("main-none");
+    }
+    document.querySelector(".searchedMovie").classList.add("main-none");
   }
 
   addHandlerCloseMovie() {
@@ -33,6 +41,11 @@ class ShowMovie {
           .closest("body")
           .querySelector(".showmovie")
           .classList.add("main-none");
+
+          // btn
+          // .closest("body")
+          // .querySelector(".searchedMovie")
+          // .classList.add("main-none");
         btn
           .closest("body")
           .querySelector(".main")
@@ -51,7 +64,7 @@ class ShowMovie {
     return `   
     <div
     class="showmovie-bg"
-    style="background-image: url(${this._data.backgroundPath})">
+    style="background-image: url(${this._data.backgroundPath.slice(-4) === "null" ? "" :this._data.backgroundPath})">
 
     <div class="bg-movie">
       <div class="movie">
@@ -64,32 +77,44 @@ class ShowMovie {
                 ? "background-size:cover"
                 : "background-size: contain;background-repeat : no-repeat;background-color:#f5f5f5; background-position:10px center"
             };
-          }
+          
           "
         ></div>
         <div class="moviedata">
           <div class="moviedata-title">
             <h1 class="title-name">
               ${this._data.movieName}
-              <span class="moviedata-release">(${this._data.releaseDate.getFullYear()})</span>
+              ${isNaN(this._data.releaseDate.getFullYear()) ? "" : `<span class = "moviedata-release">(${this._data.releaseDate.getFullYear()}) </span>`}
+              
             </h1>
 
             <div class="movie-genre">
-              <span class="certification"> R </span>
-              <span class="releasedate">${String(
-                this._data.releaseDate.getMonth() + 1
-              ).padStart(2, 0)}/${String(
-      this._data.releaseDate.getDate()
-    ).padStart(2, 0)}/${this._data.releaseDate.getFullYear()}</span>
-              <div class="genre">
-                ${this._data.genre
-                  .map((el) => {
-                    return `
-                <span class="genre-tx">${el.name}</span>
-                  `;
-                  })
-                  .join("")}
-              </div>
+             ${isNaN(this._data.releaseDate.getFullYear())? "" : `<span class="certification"> R </span>
+             <span class="releasedate">${String(
+               this._data.releaseDate.getMonth() + 1
+             ).padStart(2, 0)}/${String(
+     this._data.releaseDate.getDate()
+   ).padStart(2, 0)}/${this._data.releaseDate.getFullYear()}</span>`}
+              
+           ${isNaN(this._data.releaseDate.getFullYear())?`
+            <div class="genre" style = "margin:0px">
+           ${this._data.genre
+             .map((el) => {
+               return `
+           <span class="genre-tx" style = "margin:0px">${el.name}</span>
+             `;
+             })
+             .join("")}
+         </div>` : ` <div class="genre">
+         ${this._data.genre
+           .map((el) => {
+             return `
+         <span class="genre-tx">${el.name}</span>
+           `;
+           })
+           .join("")}
+       </div>` }   
+             
             </div>
           </div>
 
@@ -184,7 +209,7 @@ class ShowMovie {
                   fill-rule="evenodd"
                   clip-rule="evenodd"
                   d="M8.17157 10.4828C9.73367 8.96185 12.2663 8.96185 13.8284 10.4828L15 11.6236L16.1716 10.4828C17.7337 8.96185 20.2663 8.96185 21.8284 10.4828C23.3905 12.0038 23.3905 14.4698 21.8284 15.9908L15 22.6396L8.17157 15.9908C6.60948 14.4698 6.60948 12.0038 8.17157 10.4828Z"
-                  fill="#D1D5DB"
+                  fill="white"
                 />
                 <defs>
                   <filter
@@ -219,10 +244,11 @@ class ShowMovie {
                 </defs>
               </svg>
             </div>
-
-            <a class="movie-button play" href="${
-              this._data.trailer
-            }" target = "blank">
+         
+            ${this._data.trailer.slice(-9) !== "undefined"? 
+           ` <a class="movie-button play" href="
+              ${this._data.trailer}
+            " target = "blank">
               <svg
                 class="movie-button_play play-movie"
                 xmlns="http://www.w3.org/2000/svg"
@@ -241,18 +267,23 @@ class ShowMovie {
                 />
               </svg>
               <p class="movie-button_text">WATCH TRAILER</p>
-            </a>
+            </a>`  
+            :   ""              }
+          
           </div>
 
           <div class="overview">
+            ${this._data.tagline === "" ? "" : `
             <h2 class="overview-tagline">
-             ${this._data.tagline}
-            </h2>
+            ${this._data.tagline}
+           </h2>`}
+            
 
             <h2 class="overview-head">Overview</h2>
 
             <div class="overview-data">
-              ${this._data.overview}
+               ${this._data.overview === "" ? "We don't have an overview translated in English." : ` ${this._data.overview}`}
+             
             </div>
           </div>
         </div>
@@ -265,9 +296,9 @@ class ShowMovie {
       <div class="cast-sec">
         <h2 class="top">Top Billed Cast</h2>
         <div class="cast-container">
-          <ul class="cast-list">
-             ${this._data.castArr.map((el) => this._castMarkup(el)).join("")}
-          </ul>
+          ${this._data.castArr.length === 0 ? `<p class = "notAvailable">We don't have any cast added to this movie.</p>` :    `<ul class="cast-list">
+          ${this._data.castArr.map((el) => this._castMarkup(el)).join("")}
+       </ul>` }
         </div>
       </div>
 
@@ -279,16 +310,16 @@ class ShowMovie {
         </p>
         <p class="rev-data">
           <strong class="strong">Orignal Language</strong>
-          English
+          ${this._data.language}
         </p>
         <p class="rev-data">
           <strong class="strong">Budget</strong>
-          $${new Intl.NumberFormat("en-US").format(this._data.budget)}
+          ${this._data.budget === 0 ? "-" : `$${new Intl.NumberFormat("en-US").format(this._data.budget)}`}
+          
           </p>
         <p class="rev-data">
           <strong class="strong">Revenue</strong>
-          $${new Intl.NumberFormat("en-US").format(this._data.revenue)}
-          
+          ${this._data.revenue === 0 ? "-" : `$${new Intl.NumberFormat("en-US").format(this._data.revenue)}`}
         </p>
       </div>
     </div>
@@ -322,7 +353,7 @@ class ShowMovie {
       : "-18px";
   }
 
-  renderSpinner(el) {
+  renderSpinner(el,clear = true) {
     const markup = `
     <div class =  "spinnerContainer">
     <div class = "spinner">
@@ -332,8 +363,8 @@ class ShowMovie {
     </div>
     </div> 
     `;
-    el.innerHTML = "";
-    el.insertAdjacentHTML("afterbegin", markup);
+    clear? el.innerHTML = "" : "";
+    clear? el.insertAdjacentHTML("afterbegin", markup) :el.insertAdjacentHTML("beforeend", markup)
   }
 }
 

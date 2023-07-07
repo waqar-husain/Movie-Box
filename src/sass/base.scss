@@ -34,6 +34,7 @@ body {
 .spinnerContainer {
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-right: auto;
   margin-left: auto;
   width: 5rem;
@@ -83,3 +84,24 @@ body {
     height: 28px;
   }
 }
+
+
+ .errorBox{
+  width: 52.5rem; 
+  margin-right: -1rem;
+  padding: 2rem; 
+}
+
+ .errorMessage{
+  font-weight: 500;
+  font-size: 1.8rem;
+  color: #d9d9d9;
+  display: flex;
+  align-items: center; 
+  margin-right: auto;
+   margin-left: auto; 
+  width: max-content;
+ }
+ .errorM{
+  margin-left: 1rem;
+ }

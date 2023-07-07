@@ -3,6 +3,8 @@ import homePageSlide from "./view/homePageSlide.js";
 import homePageView from "./view/homePageView.js";
 import showMovieView from "./view/showMovieView.js";
 import mainSlide from "./view/movieSlider.js";
+import searchResultView from "./view/searchResultView.js";
+import searchMoviePagi from "./view/searchMoviePagi.js";
 
 ///////HOMEPAGE///////////////////////////////////////////////////////////////////////
 const controlHomepage = async function () {
@@ -14,6 +16,34 @@ const controlHomepage = async function () {
     console.log(err);
   }
 };
+
+//Controls Homepage :Calls at the beginning
+
+///////SEARCH RESULTS/////////////////////////////////////////////////////////////////////////////
+const controlSearchResults = async function (query) {
+  try {
+    searchResultView.addClass();
+    showMovieView.renderSpinner(document.querySelector(".searchMain"));
+
+    // console.log(query)
+    await model.loadSearch(query);
+    // console.log(model.state.search.results);
+
+    searchResultView.render(model.state.search.results);
+
+    if (model.state.search.results.length !== 0) {
+      searchResultView.hideErrorMessage();
+    } else {
+      searchResultView.renderError();
+    }
+
+    searchMoviePagi.addHandlerMoreResult(controlSearchPagiation);
+  } catch (err) {
+    console.log("err", err);
+  }
+};
+//Calls when user type on Search bar [controlSearchResults();]
+
 ///////SECTION MOVIES//////////////////////////////////////////////////////////////////////
 const controlMovie = async function (sec) {
   try {
@@ -33,6 +63,8 @@ const controlMovie = async function (sec) {
     console.log(err);
   }
 };
+//Generate Movie Sections : calls at the beginning
+
 /////////SHOWMOVIES//////////////////////////////////////////////////////////////////
 const controlShowMovie = async function () {
   try {
@@ -41,24 +73,33 @@ const controlShowMovie = async function () {
     document.documentElement.scrollTop = 0;
 
     const id = window.location.hash;
-    if (!id) {
-      showMovieView.hideMain();
+    if (!isFinite(id.slice(1))) {
       return;
     }
+    if (!id) {
+      showMovieView.hideMain(true);
+      return;
+    }
+    searchResultView.removeResultBox();
     const mainId = id.slice(1);
     showMovieView.hideMain();
     await model.loadMovie(mainId);
     showMovieView.clear(document.querySelector(".showmovie"));
     showMovieView.render(model.state.movieData);
-    // console.log(model.state.movieData);
   } catch (err) {
-    console.log(err);
+    console.log("error", err);
   }
 };
-// controlShowMovie();
-
-const controlSearchResults = async function () {};
-
+// Calls when user clicks on movie link [controlShowMovie();]
+///////CONTROL SEARCH PAGINATION///////////////////////////////////////////////////////////////////////////////
+const controlSearchPagiation = async function () {
+  searchMoviePagi.showSearchResults();
+  searchResultView.removeResultBox();
+  console.log(model.state.search.results);
+  searchMoviePagi.render(model.state.search.results, model.state.search.query);
+};
+// controlSearchPagiation();
+//Calls when user clicks on view more results
 //////////////////////////////////////////////////////////////////////////////////////
 const idControl = function () {
   if (window.location.hash !== "") {
@@ -78,6 +119,7 @@ const init = function () {
   showMovieView.addHandlerRender(controlShowMovie);
   showMovieView.addHandlerCloseMovie();
   homePageSlide.eventHandlerSlideTo();
+  searchResultView.addHandlerSearch(controlSearchResults);
 };
 
 init();

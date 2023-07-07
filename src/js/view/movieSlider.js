@@ -85,8 +85,8 @@ class Mainslide {
       </div>
 
       <div class="moviecard-details">
-        <p class="about">${el.releaseDate.getFullYear()}</p>
-        <p class="movie-name">${el.movieName}</p>
+        <p class="about">${isNaN(el.releaseDate)? "Not Available" : el.releaseDate.getFullYear()}</p>
+        <p class="movie-name">${el.movieName.length < 20 ? el.movieName : el.movieName.slice(0,20) +"..."}</p>
         <div class="about-movie_rating card-rating">
           <span class="rating rating-imdb">
           <svg

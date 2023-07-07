@@ -29,7 +29,7 @@ const createMovieData = function (data, trailer, cast) {
     tagline: data.tagline,
     overview: data.overview,
     status: data.status,
-    language: data.original_language,
+    language:langConvert(data.original_language),
     budget: data.budget,
     revenue: data.revenue,
     trailer: `${youtubeUrl}${trailer}`,
@@ -58,7 +58,6 @@ const videoData = async function (id) {
     });
     return trailer.key;
   } catch (err) {
-    throw err;
   }
 };
 
@@ -112,6 +111,7 @@ const createMovieShow = function (data, genres) {
     tomatoRate: Math.trunc(data.vote_average * 10),
     genre: genres,
     posterPath: `${imgUrl}w500/${data.poster_path}`,
+    language: data.original_language,
   };
 };
 
@@ -143,8 +143,30 @@ const genreId = function (movieGenre, genre) {
 };
 
 export const loadSearch = async function (query) {
+  try{
   state.search.query = query;
-  const data = await AJAX(
-    `${API_URL}?query=${query}&include_adult=false&${lang}&page=1`
+  const dataCall = await AJAX(
+    `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&${lang}&page=1`
   );
+  const genre = await AJAX(
+    `https://api.themoviedb.org/3/genre/movie/list?language=en`
+  );
+  // console.log(dataCall.results);
+  const resultSearchArr = dataCall.results.map(data => {
+    const genreArr = genreId(data.genre_ids,genre);
+    return createMovieShow(data,genreArr);
+   
+  });
+  state.search.results = resultSearchArr;
+  }catch(err){
+    throw err
+  }
 };
+
+//Converts language code to full name
+const langConvert =function(ln){        
+  const languageNames = new Intl.DisplayNames(["en"], {
+    type: 'language'
+  });
+  return languageNames.of(ln);
+}

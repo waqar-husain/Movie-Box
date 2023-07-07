@@ -22,7 +22,7 @@
           <span class="nav-box__name">MovieBox</span>
         </button>
         <form action="#" class="nav-search">
-          <div class="search-box">
+          <div class="search-box"> <!--when focus add class: "searchFocus"-->
                <div class="search">             
                  <input
                    class="nav-search__input"
@@ -47,19 +47,20 @@
             </svg>
                  </span>
                </div>
-               <!-- <a href = "#" class="movieSearch">
-                 HI
-               </a>
-               <a href = "#" class="movieSearch">
-                HI
-              </a>
-              <a href = "#" class="movieSearch">
-                HI
-              </a>
-              <a href = "#" class="movieSearch">
-                HI
-              </a> -->
-           
+               <div class="searchMain main-none">
+
+               <!-- <div class =  "spinnerContainer" style="height: 10vh;">
+                <div class = "spinner" style="zoom: 0.8;">
+                  <div class = "bar"></div>
+                  <div class= "bar"></div>
+                  <div class = "bar"></div>
+                </div>
+                </div>  -->
+                 
+              
+            
+            </div>
+         
           </div>
         </form>
         <a class="nav-sign"></a>
@@ -1461,6 +1462,42 @@
           </div>
         </div>
       </div> -->
+    </section>
+    <!-- ////// SEARCHED MOVIE///////////////////////////////////////////////////////////////////////////// -->
+    <section class="searchedMovie main-none">
+    <div class = "searchResult">
+
+    </div>
+    <div class="paginate">
+      <div class="paginationContainer">
+        <div class="prev pagiBtn">
+          <div class="prevBtn">
+            <span class="arr arrL">&larr;</span> 
+            <p class="btnText">
+              PREV
+            </p>
+          </div>
+        </div>
+        <div class="pagesCont">
+            <div class="page pageFocused">1</div>
+            <div class="page">2</div>   
+            <div class="page">3</div>   
+            <div class="page">4</div>   
+            <div class="page">5</div>   
+        </div>
+        <div class="next pagiBtn">
+          <div class="nextBtn">
+            <p class="btnText">
+              NEXT 
+            </p>
+            <span class="arr arrR">&rarr;</span>
+          </div>
+          
+          
+        </div>
+      </div>
+    </div>
+      
     </section>
     <!-- ///////////////////////////////////////////////////////////////////////////////////////// -->
     <footer class="footer">
