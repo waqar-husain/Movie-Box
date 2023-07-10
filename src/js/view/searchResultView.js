@@ -3,7 +3,7 @@ class SearchResult {
   _searchBox = document.querySelector(".search-box");
 
   render(data) {
-    this._data = data;
+    this._data = data.result;
     const markUp = this._genrateMarkup();
     // console.log(markUp);
     this._searchBox.querySelector(".searchMain").innerHTML = "";
@@ -36,8 +36,16 @@ class SearchResult {
          <div class="searchedDetails">
            <p class="searchedDetails-name">${el.movieName}</p>
            <div class="searchedDetails-date">
-             <p>${el.releaseDate.toDateString() !== "Invalid Date" ? el.releaseDate.toDateString().slice(4) : ""}</p>
-             <p class="searchedDetails-date_lang" ${el.releaseDate.toDateString() === "Invalid Date" ? "style = 'margin-left : 1rem' " : ""} >${el.language}</p>
+             <p>${
+               el.releaseDate.toDateString() !== "Invalid Date"
+                 ? el.releaseDate.toDateString().slice(4)
+                 : ""
+             }</p>
+             <p class="searchedDetails-date_lang" ${
+               el.releaseDate.toDateString() === "Invalid Date"
+                 ? "style = 'margin-left : 1rem' "
+                 : ""
+             } >${el.language}</p>
            </div>
              <p class="searchedDetails-genre">${el.genre}</p>
          </div>
@@ -79,7 +87,6 @@ class SearchResult {
     //   }
     // });
 
-    
     let typingTimer; // Timer identifier
     const doneTypingInterval = 600; // Time in milliseconds (0.5 seconds)
 
@@ -90,14 +97,11 @@ class SearchResult {
       if (query.length >= 2) {
         func(query);
         searchBox.querySelector(".searchMain").classList.remove("main-none");
-
       } else if (query.length < 2) {
         searchBox.classList.remove("searchFocus");
         searchBox.querySelector(".searchMain").innerHTML = "";
         searchBox.querySelector(".searchMain").classList.add("main-none");
-
       }
-
     }
 
     // Event listener for input event

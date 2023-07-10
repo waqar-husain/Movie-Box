@@ -27,11 +27,11 @@ const controlSearchResults = async function (query) {
 
     // console.log(query)
     await model.loadSearch(query);
-    // console.log(model.state.search.results);
+    console.log(model.state.search.results);
 
     searchResultView.render(model.state.search.results);
 
-    if (model.state.search.results.length !== 0) {
+    if (model.state.search.results.result.length !== 0) {
       searchResultView.hideErrorMessage();
     } else {
       searchResultView.renderError();
@@ -92,13 +92,29 @@ const controlShowMovie = async function () {
 };
 // Calls when user clicks on movie link [controlShowMovie();]
 ///////CONTROL SEARCH PAGINATION///////////////////////////////////////////////////////////////////////////////
-const controlSearchPagiation = async function () {
+const controlSearchPagiation = async function (query, page) {
   searchMoviePagi.showSearchResults();
   searchResultView.removeResultBox();
-  console.log(model.state.search.results);
+  await model.loadSearch(query, page);
+  searchMoviePagi.render(model.state.search.results, model.state.search.query);
+  searchMoviePagi.eventHandlerPage(
+    hi,
+    model.state.search.query,
+    model.state.search.results.noPages
+  );
+};
+
+const hi = async function (query, page) {
+  window.scrollTo(0, 0);
+  await model.loadSearch(query, page);
   searchMoviePagi.render(model.state.search.results, model.state.search.query);
 };
+
 // controlSearchPagiation();
+// searchMoviePagi.eventHandlerPage(
+//   controlSearchPagiation,
+//   model.state.search.query
+// );
 //Calls when user clicks on view more results
 //////////////////////////////////////////////////////////////////////////////////////
 const idControl = function () {

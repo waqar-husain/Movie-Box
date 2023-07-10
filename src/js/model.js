@@ -29,7 +29,7 @@ const createMovieData = function (data, trailer, cast) {
     tagline: data.tagline,
     overview: data.overview,
     status: data.status,
-    language:langConvert(data.original_language),
+    language: langConvert(data.original_language),
     budget: data.budget,
     revenue: data.revenue,
     trailer: `${youtubeUrl}${trailer}`,
@@ -57,8 +57,7 @@ const videoData = async function (id) {
       return el.type === "Trailer";
     });
     return trailer.key;
-  } catch (err) {
-  }
+  } catch (err) {}
 };
 
 const castData = async function (id) {
@@ -142,31 +141,33 @@ const genreId = function (movieGenre, genre) {
   return genreName;
 };
 
-export const loadSearch = async function (query) {
-  try{
-  state.search.query = query;
-  const dataCall = await AJAX(
-    `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&${lang}&page=1`
-  );
-  const genre = await AJAX(
-    `https://api.themoviedb.org/3/genre/movie/list?language=en`
-  );
-  // console.log(dataCall.results);
-  const resultSearchArr = dataCall.results.map(data => {
-    const genreArr = genreId(data.genre_ids,genre);
-    return createMovieShow(data,genreArr);
-   
-  });
-  state.search.results = resultSearchArr;
-  }catch(err){
-    throw err
+export const loadSearch = async function (query, page = 1) {
+  try {
+    state.search.query = query;
+    state.search.page = page;
+    const dataCall = await AJAX(
+      `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&${lang}&page=${page}`
+    );
+    const genre = await AJAX(
+      `https://api.themoviedb.org/3/genre/movie/list?language=en`
+    );
+    const resultSearchArr = dataCall.results.map((data) => {
+      const genreArr = genreId(data.genre_ids, genre);
+      return createMovieShow(data, genreArr);
+    });
+    state.search.results = {
+      result: resultSearchArr,
+      noPages: dataCall.total_pages,
+    };
+  } catch (err) {
+    throw err;
   }
 };
 
 //Converts language code to full name
-const langConvert =function(ln){        
+const langConvert = function (ln) {
   const languageNames = new Intl.DisplayNames(["en"], {
-    type: 'language'
+    type: "language",
   });
   return languageNames.of(ln);
-}
+};

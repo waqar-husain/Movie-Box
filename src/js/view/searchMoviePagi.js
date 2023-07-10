@@ -1,38 +1,101 @@
 class SearchPagination {
-    _data;
-    _query;
-    _mainDiv = document.querySelector(".main");
-    _navShow = document.querySelector(".navbar");
-    _showMovie = document.querySelector(".showmovie");
+  _data;
+  _query;
+  _mainDiv = document.querySelector(".main");
+  _navShow = document.querySelector(".navbar");
+  _showMovie = document.querySelector(".showmovie");
 
-    render(data,query){
-       this._data = data;
-       this._query=query;
+  render(data, query) {
+    this._data = data.result;
+    this._query = query;
 
-       const markup = this._generateMarkUp();
-       document.querySelector(".searchResult").textContent = "";
-       document.querySelector(".searchResult").insertAdjacentHTML("afterbegin",markup);
-    }
+    const markup = this._generateMarkUp();
+    document.querySelector(".searchResult").textContent = "";
+    document
+      .querySelector(".searchResult")
+      .insertAdjacentHTML("afterbegin", markup);
 
-    _fixImg(img, position = false) {
-      return position
-        ? img.slice(-4) !== "null"
-          ? img
-          : "https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"
-        : img.slice(-4) !== "null"
-        ? "center center"
-        : "-18px";
-    }
-  
+    document.querySelector(".paginate").textContent = "";
+    const pagiMarkup = this._generatePagiMarkup();
+    document
+      .querySelector(".paginate")
+      .insertAdjacentHTML("beforeend", pagiMarkup);
+  }
 
-    _generateMarkUp(){
-      return`
+  _generatePagiMarkup() {
+    return `
+    <div class="paginationContainer">
+      <div class="prev pagiBtn">
+        <div class="prevBtn" data-prev = "">
+          <span class="arr arrL">&larr;</span> 
+          <p class="btnText">
+            PREV
+          </p>
+        </div>
+      </div>
+      <div class="pagesCont">
+          <div class="page pageFocused">1</div>
+          <div class="page">2</div>   
+          <div class="page">3</div>   
+          <div class="page">4</div>   
+          <div class="page">5</div>   
+      </div>
+      <div class="next pagiBtn">
+        <div class="nextBtn" data-nxt = "">
+          <p class="btnText">
+            NEXT 
+          </p>
+          <span class="arr arrR">&rarr;</span>
+          </div>
+      </div>
+    </div>
+    `;
+  }
+
+  eventHandlerPage(func, query, maxPage) {
+    const btnCont = document.querySelector(".searchedMovie");
+    let val = 1;
+    console.log(maxPage);
+    btnCont?.addEventListener("click", function (e) {
+      e.preventDefault();
+      const btnNxt = e.target.closest(".nextBtn");
+      const btnPrev = e.target.closest(".prevBtn");
+      if (btnNxt) {
+        if (val === maxPage) return;
+        val += 1;
+        func(query, val);
+      }
+      if (btnPrev) {
+        if (val === 1) {
+          val = 1;
+          return;
+        }
+        val -= 1;
+        func(query, val);
+      }
+    });
+  }
+
+  _fixImg(img, position = false) {
+    return position
+      ? img.slice(-4) !== "null"
+        ? img
+        : "https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"
+      : img.slice(-4) !== "null"
+      ? "center center"
+      : "-18px";
+  }
+
+  _generateMarkUp() {
+    return `
       <div class = "searchedFor">
-      <p>Search results for: "${this._query}" <span class="pgNo">Page No(1)</span></p>
+      <p>Search results for: "${
+        this._query
+      }" <span class="pgNo">Page No(1)</span></p>
       </div>
      <div class="movielist movielist-grid" style="width: 133.9rem; grid-column-gap: 11rem !important; margin-top:5rem">
-      ${
-        this._data.map((el) => {
+      ${this._data
+        .map((el) => {
           return `
         <a href="#${el.id}" class="moviecard" style = "position : relative"> 
         <div class="moviecard-poster">
@@ -100,17 +163,25 @@ class SearchPagination {
               el.posterPath,
               true
             )}" style = "${
-              el  .posterPath.slice(-4) !== "null"
-                ? ""
-                : "object-fit: contain;background-repeat : no-repeat;background-color:#f5f5f5; background-position:10px center;"
-            }"; />
+            el.posterPath.slice(-4) !== "null"
+              ? ""
+              : "object-fit: contain;background-repeat : no-repeat;background-color:#f5f5f5; background-position:10px center;"
+          }"; />
             
           </div>
         </div>
   
         <div class="moviecard-details">
-          <p class="about">${isNaN(el.releaseDate)? "Not Available" : el.releaseDate.getFullYear()}</p>
-          <p class="movie-name">${el.movieName.length < 20 ? el.movieName : el.movieName.slice(0,20) +"..."}</p>
+          <p class="about">${
+            isNaN(el.releaseDate)
+              ? "Not Available"
+              : el.releaseDate.getFullYear()
+          }</p>
+          <p class="movie-name">${
+            el.movieName.length < 20
+              ? el.movieName
+              : el.movieName.slice(0, 20) + "..."
+          }</p>
           <div class="about-movie_rating card-rating">
             <span class="rating rating-imdb">
             <svg
@@ -183,31 +254,35 @@ class SearchPagination {
         </div>
       </a>`;
         })
-        .join("")
-      }
+        .join("")}
      </div>
-      `
-    }
 
+     
+      `;
+  }
 
-    addHandlerMoreResult(func){
-        const btn = document.querySelector(".navbar")?.querySelector(".moreResults");
-        btn.addEventListener("click",function(e){
-            e.preventDefault();
-            const query = btn.closest(".search-box").querySelector(".nav-search__input").value
-            window.location.hash = `search=${query}`
-             func();
-        })
-    }
+  addHandlerMoreResult(func) {
+    const btn = document
+      .querySelector(".navbar")
+      ?.querySelector(".moreResults");
+    btn?.addEventListener("click", function (e) {
+      e.preventDefault();
+      const query = btn
+        .closest(".search-box")
+        .querySelector(".nav-search__input").value;
+      const url = `search=${query}`;
+      window.location.hash = url;
+      func(url.slice(7));
+    });
+  }
 
-    showSearchResults(){
-        this._mainDiv.classList.add("main-none");
-        this._navShow.classList.add("navbar-movie");
-        this._navShow.querySelector(".nav-box").classList.add("box-movie");
-        this._showMovie.classList.add("main-none");
-        document.querySelector(".searchedMovie").classList.remove("main-none");
-    }
-
+  showSearchResults() {
+    this._mainDiv.classList.add("main-none");
+    this._navShow.classList.add("navbar-movie");
+    this._navShow.querySelector(".nav-box").classList.add("box-movie");
+    this._showMovie.classList.add("main-none");
+    document.querySelector(".searchedMovie").classList.remove("main-none");
+  }
 }
 
 export default new SearchPagination();
