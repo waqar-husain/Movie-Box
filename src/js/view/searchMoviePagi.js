@@ -1,14 +1,17 @@
 class SearchPagination {
   _data;
+  _noPages;
   _query;
+  _curPage;
   _mainDiv = document.querySelector(".main");
   _navShow = document.querySelector(".navbar");
   _showMovie = document.querySelector(".showmovie");
 
-  render(data, query) {
+  render(data, query, page) {
     this._data = data.result;
+    this._noPages = data.noPages;
     this._query = query;
-
+    this._curPage = page;
     const markup = this._generateMarkUp();
     document.querySelector(".searchResult").textContent = "";
     document
@@ -24,38 +27,37 @@ class SearchPagination {
 
   _generatePagiMarkup() {
     return `
-    <div class="paginationContainer">
-      <div class="prev pagiBtn">
-        <div class="prevBtn" data-prev = "">
-          <span class="arr arrL">&larr;</span> 
-          <p class="btnText">
-            PREV
-          </p>
-        </div>
-      </div>
-      <div class="pagesCont">
-          <div class="page pageFocused">1</div>
-          <div class="page">2</div>   
-          <div class="page">3</div>   
-          <div class="page">4</div>   
-          <div class="page">5</div>   
-      </div>
-      <div class="next pagiBtn">
-        <div class="nextBtn" data-nxt = "">
-          <p class="btnText">
-            NEXT 
-          </p>
-          <span class="arr arrR">&rarr;</span>
-          </div>
+    ${
+      this._noPages === 1
+        ? ""
+        : ` <div class="paginationContainer">
+    <div class="prev pagiBtn">
+      <div class="prevBtn" data-prev = "">
+        <span class="arr arrL">&larr;</span> 
+        <p class="btnText">
+          PREV
+        </p>
       </div>
     </div>
+    <div class="pagesCont">
+     <p class = pages>Total no. pages (${this._noPages})</p>
+    </div>
+    <div class="next pagiBtn">
+      <div class="nextBtn" data-nxt = "">
+        <p class="btnText">
+          NEXT 
+        </p>
+        <span class="arr arrR">&rarr;</span>
+        </div>
+    </div>
+  </div>`
+    }
     `;
   }
 
   eventHandlerPage(func, query, maxPage) {
-    const btnCont = document.querySelector(".searchedMovie");
+    const btnCont = document.querySelector(".paginate");
     let val = 1;
-    console.log(maxPage);
     btnCont?.addEventListener("click", function (e) {
       e.preventDefault();
       const btnNxt = e.target.closest(".nextBtn");
@@ -89,9 +91,11 @@ class SearchPagination {
   _generateMarkUp() {
     return `
       <div class = "searchedFor">
-      <p>Search results for: "${
-        this._query
-      }" <span class="pgNo">Page No(1)</span></p>
+      <p>Search results for: "${this._query}" ${
+      this._noPages === 1
+        ? ""
+        : `<span class="pgNo">Page No(${this._curPage})</span>`
+    }</p>
       </div>
      <div class="movielist movielist-grid" style="width: 133.9rem; grid-column-gap: 11rem !important; margin-top:5rem">
       ${this._data
@@ -99,65 +103,6 @@ class SearchPagination {
           return `
         <a href="#${el.id}" class="moviecard" style = "position : relative"> 
         <div class="moviecard-poster">
-          <div class="like">
-            <div class="like-right">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="30"
-                height="30"
-                viewBox="0 0 30 30"
-                fill="none"
-              >
-                <g filter="url(#filter0_b_1366_545)">
-                  <ellipse
-                    cx="15"
-                    cy="15.1842"
-                    rx="15"
-                    ry="14.6053"
-                    fill="#F3F4F6"
-                    fill-opacity="0.5"
-                  />
-                </g>
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M8.17157 10.4828C9.73367 8.96185 12.2663 8.96185 13.8284 10.4828L15 11.6236L16.1716 10.4828C17.7337 8.96185 20.2663 8.96185 21.8284 10.4828C23.3905 12.0038 23.3905 14.4698 21.8284 15.9908L15 22.6396L8.17157 15.9908C6.60948 14.4698 6.60948 12.0038 8.17157 10.4828Z"
-                  fill="white"
-                />
-                <defs>
-                  <filter
-                    id="filter0_b_1366_545"
-                    x="-2"
-                    y="-1.42105"
-                    width="34"
-                    height="33.2105"
-                    filterUnits="userSpaceOnUse"
-                    color-interpolation-filters="sRGB"
-                  >
-                    <feFlood
-                      flood-opacity="0"
-                      result="BackgroundImageFix"
-                    />
-                    <feGaussianBlur
-                      in="BackgroundImageFix"
-                      stdDeviation="1"
-                    />
-                    <feComposite
-                      in2="SourceAlpha"
-                      operator="in"
-                      result="effect1_backgroundBlur_1366_545"
-                    />
-                    <feBlend
-                      mode="normal"
-                      in="SourceGraphic"
-                      in2="effect1_backgroundBlur_1366_545"
-                      result="shape"
-                    />
-                  </filter>
-                </defs>
-              </svg>
-            </div>
-          </div>
           <div class="moviecard-poster_img">
             <img class ="movieCard_img" src="${this._fixImg(
               el.posterPath,
@@ -272,7 +217,7 @@ class SearchPagination {
         .querySelector(".nav-search__input").value;
       const url = `search=${query}`;
       window.location.hash = url;
-      func(url.slice(7));
+      func(url.slice(7), 1);
     });
   }
 

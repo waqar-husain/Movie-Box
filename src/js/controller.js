@@ -96,7 +96,11 @@ const controlSearchPagiation = async function (query, page) {
   searchMoviePagi.showSearchResults();
   searchResultView.removeResultBox();
   await model.loadSearch(query, page);
-  searchMoviePagi.render(model.state.search.results, model.state.search.query);
+  searchMoviePagi.render(
+    model.state.search.results,
+    model.state.search.query,
+    page
+  );
   searchMoviePagi.eventHandlerPage(
     hi,
     model.state.search.query,
@@ -107,7 +111,11 @@ const controlSearchPagiation = async function (query, page) {
 const hi = async function (query, page) {
   window.scrollTo(0, 0);
   await model.loadSearch(query, page);
-  searchMoviePagi.render(model.state.search.results, model.state.search.query);
+  searchMoviePagi.render(
+    model.state.search.results,
+    model.state.search.query,
+    page
+  );
 };
 
 // controlSearchPagiation();

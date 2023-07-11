@@ -1,120 +1,139 @@
 .searchedMovie {
-    min-height: 50vh;
-  }
+  min-height: 50vh;
+}
 
-.paginate{
-  background-color:#eceef1;
+.paginate {
+  background-color: #eceef1;
   margin-top: 6rem;
   margin-bottom: 5rem;
   width: max-content;
   margin-right: auto;
   margin-left: auto;
 }
-.paginationContainer{
+.paginationContainer {
   font-weight: 500;
   font-size: 1.6rem;
   display: flex;
   align-items: center;
-  color:  #be123c;
-  width: 122.5rem;
-   box-shadow: 
-    0px 11px 2px -10px rgba($color: #000000, $alpha: 0.1),
-    0px -11px 2px -10px rgba($color: #000000, $alpha: 0.1); 
+  color: #fff;
+  width: max-content;
+  box-shadow: 0px 11px 2px -10px rgba($color: #000000, $alpha: 0.1),
+    0px -11px 2px -10px rgba($color: #000000, $alpha: 0.1);
 }
 
-.pagiBtn{
-  width: 50rem;
+.pagiBtn {
+  width: 60rem;
   display: flex;
 }
 
-.prevBtn{
-  padding: 1rem;
+.prevBtn {
+  padding: 0.8rem;
   display: flex;
+  margin: 0.8rem;
   align-items: center;
   cursor: pointer;
-  justify-content: flex-end;
+  color: #fff;
+  border-radius: 4rem;
+  background-color: #be123c;
+  justify-content: flex-start;
   transition: all 0.5s;
-  &:hover{
-    color: #444444 ;
-    .arrL{
-      color: #444444 ;
+  &:hover {
+    background-color: #505050;
+
+    .arrL {
       transform: translateX(-0.5rem);
     }
   }
-
 }
 
-.nextBtn{
-  padding: 1rem;
+.nextBtn {
+  padding: 0.8rem;
   display: flex;
   align-items: center;
+  border-radius: 4rem;
+  margin: 0.8rem;
+  color: #fff;
+  background-color: #be123c;
+
   cursor: pointer;
-  justify-content: flex-start;
+  justify-content: flex-end;
   transition: all 0.5s;
-  &:hover{
-    color: #444444 ;
-    .arrR{
-      color: #444444 ;
+  &:hover {
+    background-color: #505050;
+    .arrR {
       transform: translateX(0.5rem);
     }
   }
 }
 
-.prev{
+.prev {
   justify-content: flex-end;
+  padding-right: 30rem;
   margin-right: 2rem;
-  background : linear-gradient(to right, rgba(255,255,255,1) 0%, #eceef1  27.59%,#eceef1 76.35%, #eceef1 100%)
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1) 0%,
+    #eceef1 27.59%,
+    #eceef1 76.35%,
+    #eceef1 100%
+  );
 }
 
-.next{
+.next {
   margin-left: 2rem;
-  background : linear-gradient(to left, rgba(255,255,255,1) 0%, #eceef1 27.59%,#eceef1 76.35%, #eceef1 100%)
+  padding-left: 30rem;
+  background: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 1) 0%,
+    #eceef1 27.59%,
+    #eceef1 76.35%,
+    #eceef1 100%
+  );
 }
 
-.pagesCont{
+.pagesCont {
   color: #be123c;
   margin: 0rem 1rem;
   font-weight: 600;
   font-size: 1.8rem;
-display: flex;
-align-items: center;
+  display: flex;
+  align-items: center;
 }
 
-.page{
+.page {
   margin: 0rem 1rem;
   cursor: pointer;
   transition: all 0.2s;
 
-  &:hover{
-    color: #444444 ;
-
+  &:hover {
+    color: #444444;
   }
 }
 
-.pageFocused{
+.pageFocused {
   text-align: center;
-    height: 2.9rem;
+  height: 2.9rem;
+  color: #eceef1;
+  background-color: #be123c;
+  border-radius: 50%;
+  width: 3rem;
+
+  &:hover {
     color: #eceef1;
-    background-color: #be123c;
-    border-radius: 50%;
-    width: 3rem;
-
-    &:hover{
-
-      color: #eceef1;
-  
-    }
-}
-.arr{
-  color: #be123c;
-  transition: all 0.2s;
-
-}
-.arrL{margin-right: 0.2rem;}
-.arrR{
-  margin-left: 0.2rem;}
-
-  .pgNo{
-    font-size: 2.4rem;
-    color: #cfd1d4;
   }
+}
+.arr {
+  color: #fff;
+  transition: all 0.2s;
+}
+.arrL {
+  margin-right: 0.2rem;
+}
+.arrR {
+  margin-left: 0.2rem;
+}
+
+.pgNo {
+  font-size: 2.4rem;
+  color: #cfd1d4;
+}
