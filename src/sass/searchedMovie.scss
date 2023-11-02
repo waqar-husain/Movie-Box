@@ -22,7 +22,7 @@
 }
 
 .pagiBtn {
-  width: 60rem;
+  width: 25rem;
   display: flex;
 }
 
@@ -68,7 +68,7 @@
 
 .prev {
   justify-content: flex-end;
-  padding-right: 30rem;
+  padding-right: 3rem;
   margin-right: 2rem;
   background: linear-gradient(
     to right,
@@ -81,7 +81,7 @@
 
 .next {
   margin-left: 2rem;
-  padding-left: 30rem;
+  padding-left: 3rem;
   background: linear-gradient(
     to left,
     rgba(255, 255, 255, 1) 0%,

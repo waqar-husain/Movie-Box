@@ -117,6 +117,7 @@ class Mainslide {
 
     cardArr.forEach((el, i) => {
       el.style.transform = `translateX(${136 * i}%)`;
+      el.style.transition = "none";
     });
   }
 
@@ -131,11 +132,17 @@ class Mainslide {
     const maxSlide = cardArr.length - 4;
     let curSlide = 0;
 
+    console.log(curSlide, "CUR");
+    console.log(maxSlide, "MAX");
+
     btnRight.addEventListener("click", function (e) {
       e.preventDefault();
       curSlide === maxSlide ? (curSlide = 0) : curSlide++;
+      console.log(curSlide, "CUR");
+      console.log(maxSlide, "MAX");
       cardArr.forEach((el, i) => {
         el.style.transform = `translateX(${136 * (i - curSlide)}%)`;
+        el.style.transition = "transform 0.8s";
       });
     });
 
@@ -144,10 +151,13 @@ class Mainslide {
       .querySelector(".btn-left");
 
     btnLeft.addEventListener("click", function (e) {
+      console.log(curSlide, "CUR");
+      console.log(maxSlide, "MAX");
       e.preventDefault();
       curSlide === 0 ? (curSlide = 0) : curSlide--;
       cardArr.forEach((el, i) => {
         el.style.transform = `translateX(${136 * (i - curSlide)}%)`;
+        el.style.transition = "transform 0.8s";
       });
     });
   }
@@ -194,6 +204,10 @@ class Mainslide {
         .forEach((el) => {
           el.classList.toggle("movieCard-full");
         });
+
+      sliderArr.forEach((el, i) => {
+        el.style.transition = "none";
+      });
 
       ///////////////////addEventlistenerEnd////////////////////////////////////
     });

@@ -91,6 +91,7 @@ const controlShowMovie = async function () {
   }
 };
 // Calls when user clicks on movie link [controlShowMovie();]
+
 ///////CONTROL SEARCH PAGINATION///////////////////////////////////////////////////////////////////////////////
 const controlSearchPagiation = async function (query, page) {
   searchMoviePagi.showSearchResults();
